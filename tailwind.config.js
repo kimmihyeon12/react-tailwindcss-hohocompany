@@ -17,6 +17,12 @@ module.exports = {
                 'neot': ['NeoT'],
                 'neoul': ['NeoUL'] 
             },
+            animation: {
+                'bounce-1s': 'bounce 1s linear infinite',
+                'bounce-2s': 'bounce 2s linear infinite',
+                'bounce-3s': 'bounce 3s linear infinite',
+                'bounce-4s': 'bounce 4s linear infinite',
+               }
         },
         screens:{
             'sm': '640px',

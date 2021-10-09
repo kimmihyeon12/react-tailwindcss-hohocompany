@@ -19,7 +19,6 @@ function Slider(){
     let [btnstate,setBtnstate] = useState(false);
     const banner = [banner1,banner2,banner3,banner4];
     const [bannerCount,setBannerCount] = useRecoilState(bannerCountState);             
-    console.log(btnstate);
 
     useEffect(()=>{
         let barwidth = 0;
