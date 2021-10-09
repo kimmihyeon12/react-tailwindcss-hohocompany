@@ -3,7 +3,7 @@ import logo from "./assets/img/header/logo.png";
 
 import Slider from "../src/component/Slider";
 // 2
-import UpAnimation from "./animation/UpAnimation";
+import Scrollview from "./component/Scrollview";
 //import { useRecoilState } from "recoil";
 //import testState from "./atom/testState";
 // 3
@@ -15,6 +15,9 @@ import text3 from "./assets/img/main-section3/text3.png"
 import text4 from "./assets/img/main-section3/text4.png"
 //
 import iconGroup from "./assets/img/main-section4/icongroup.png"
+//
+import SliderCenterBig from "./component/sliderCenterBig";
+
 import { useEffect, useRef, useState } from "react";
 const App = () => {
     
@@ -37,9 +40,7 @@ const App = () => {
         </div>
 
         <div className="flex w-screen h-[49vw]  justify-center ">
-            <div className="flex w-[80vw] mt-[1.7vw] justify-between">
-                <UpAnimation/>
-            </div>
+            <Scrollview page={2}/>
         </div>
 
         <div className="flex w-screen h-[72.6vw] relative justify-center">
@@ -65,8 +66,14 @@ const App = () => {
             <p className="font-neob text-[1.4vw] mb-[2.3vw]">필요한 진짜 정보를 일상에서 더 쉽게, 더 자주 만나보세요</p>
             <img className="w-[46.5vw]" src={iconGroup} alt=""></img>
         </div>
-        <div className="w-screen h-[49.5vw]"></div>
-        <div className="w-screen h-[49vw]"></div>
+
+        <div className="w-screen h-[49.5vw] mt-[5.3vw] ">
+        <SliderCenterBig/>
+        </div>
+
+        <div className="w-screen h-[49vw] flex justify-center">
+         <Scrollview page={4}/>
+        </div>
         <div className="w-screen h-[49vw]"></div>
         <div className="w-screen h-[49vw]"></div>
         </div>
