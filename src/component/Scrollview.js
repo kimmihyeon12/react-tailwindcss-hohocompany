@@ -5,7 +5,7 @@ import phoneimg from "../assets/img/main-section6/phone.png"
 import { useEffect, useRef, useState } from "react";
 
 function UpAnimation({page}){
-    console.log(page);
+
     let division = 10;
     if(page===4) division = 0.6 ;
     const text = useRef();
@@ -20,7 +20,7 @@ function UpAnimation({page}){
  
     useEffect(() => {
         window.addEventListener("scroll", (e)=>{
-               setScrollY(window.pageYOffset);
+                setScrollY(window.pageYOffset);
             if(page===2){
                 
                 if(scrollY < scrollbarSize){
@@ -32,9 +32,7 @@ function UpAnimation({page}){
                     img.current.style.transform = "translate(0, 0)"
                 }
             }
-            if(page===4){
-                console.log(scrollY)
-                console.log(scrollbarSize)
+            if(page===4){   
                 if(scrollY < scrollbarSize){
                     text1.current.style.transform = "translate(0, 130%)"
                     img1.current.style.transform = "translate(0, 130%)"
