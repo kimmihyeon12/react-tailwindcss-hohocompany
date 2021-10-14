@@ -1,23 +1,18 @@
 import "./styles/index.css";
-// Import css files
-import logo from "./assets/img/header/logo.png";
 
-import Slider from "../src/component/Slider";
-// 2
-import Scrollview from "./component/Scrollview";
-//import { useRecoilState } from "recoil";
-//import testState from "./atom/testState";
-// 3
 import backgroud from "./assets/img/main-section3/background.png"
 import phone3 from "./assets/img/main-section3/phone.png";
 import text1 from "./assets/img/main-section3/text1.png"
 import text2 from "./assets/img/main-section3/text2.png"
 import text3 from "./assets/img/main-section3/text3.png"
 import text4 from "./assets/img/main-section3/text4.png"
-//
+import logo from "./assets/img/header/logo.png";
 import iconGroup from "./assets/img/main-section4/icongroup.png"
+import movieImg from "./assets/img/main-section7/card.png"
 //
 import SliderCenterBig from "./component/sliderCenterBig";
+import Slider from "../src/component/Slider";
+import Scrollview from "./component/Scrollview";
 import AutoSlider from "./component/AutoSlider";
 import { useEffect, useRef, useState } from "react";
 const App = () => {
@@ -35,10 +30,11 @@ const App = () => {
             </ul>
             </div> 
         </div>
-        <div className="absolute">
+        
         <div className="w-screen  h-[49.4vw]">
             <Slider/>
         </div>
+     
 
         <div className="flex w-screen h-[49vw]  justify-center ">
             <Scrollview page={2}/>
@@ -67,19 +63,27 @@ const App = () => {
             <p className="font-neob text-[1.4vw] mb-[2.3vw]">필요한 진짜 정보를 일상에서 더 쉽게, 더 자주 만나보세요</p>
             <img className="w-[46.5vw]" src={iconGroup} alt=""></img>
         </div>
-       
-        <div className=" w-screen h-[49.5vw] mt-[5.3vw] ">
-        <AutoSlider/>
+
+        <div className=" w-screen h-[46.5vw] mt-[5.3vw] ">
+        <SliderCenterBig/>
         </div>
 
         <div className="w-screen h-[49vw] flex justify-center">
-         <Scrollview page={4}/>
+        <Scrollview page={4}/>
         </div>
-        <div className="w-screen h-[49vw]"></div>
-        <div className="w-screen h-[49vw]"></div>
+        <div className="flex flex-col w-[100vw] h-[49vw] border items-center justify-center">
+                <img className="w-[51.4vw] duration-700 hover:scale-50" src={movieImg} alt=""/>
+                <ul className="flex">
+                    <li className="text-[2.6vw] font-neor leading-[2.9vw] mr-[4vw]">우아하게는<br/><span className="font-neob">우리아이와 함께하다</span><br/>라는 뜻이에요</li>
+                    <li className="text-[1.4vw] font-neosb leading-[1.9vw]">고객에게는 마음 편한 외식장소를 제공하고<br/> 제휴 상점에는 매장 홍보 서비스를 제공하여<br/> 지속적인 고객 유치를 지원하게 됩니다</li>
+                </ul>
         </div>
         
-    </div>
+        <div>
+         <AutoSlider/>
+        </div>
+
+        </div>
     );
 };
 

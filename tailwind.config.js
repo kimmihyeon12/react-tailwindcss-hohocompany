@@ -13,6 +13,10 @@ module.exports = {
       ],
     theme: {
         extend:{
+            variants: {
+                // ...
+                scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+              },
             fontFamily: {
                 'neob': ['NeoB'],
                 'neoeb': ['NeoEB'],
@@ -30,6 +34,7 @@ module.exports = {
                 'bounce-3s': 'bounce 3s linear infinite',
                 'bounce-4s': 'bounce 4s linear infinite',
                },
+              
             dropShadow: {
             sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
             DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',

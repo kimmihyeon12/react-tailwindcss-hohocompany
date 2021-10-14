@@ -544,42 +544,6 @@ video {
 	--tw-ring-offset-shadow: 0 0 #0000;
 	--tw-ring-shadow: 0 0 #0000;
 }
-.container {
-	width: 100%;
-}
-@media (min-width: 640px) {
-
-	.container {
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px) {
-
-	.container {
-		max-width: 768px;
-	}
-}
-@media (min-width: 1024px) {
-
-	.container {
-		max-width: 1024px;
-	}
-}
-@media (min-width: 1280px) {
-
-	.container {
-		max-width: 1280px;
-	}
-}
-@media (min-width: 1536px) {
-
-	.container {
-		max-width: 1536px;
-	}
-}
-.pointer-events-none {
-	pointer-events: none;
-}
 .absolute {
 	position: absolute;
 }
@@ -591,12 +555,6 @@ video {
 }
 .top-\[42vw\] {
 	top: 42vw;
-}
-.left-0 {
-	left: 0px;
-}
-.top-\[1vw\] {
-	top: 1vw;
 }
 .top-\[17\.2vw\] {
 	top: 17.2vw;
@@ -673,6 +631,9 @@ video {
 .mt-\[5\.3vw\] {
 	margin-top: 5.3vw;
 }
+.mr-\[4vw\] {
+	margin-right: 4vw;
+}
 .mt-\[1\.7vw\] {
 	margin-top: 1.7vw;
 }
@@ -721,14 +682,20 @@ video {
 .mb-\[3\.5vw\] {
 	margin-bottom: 3.5vw;
 }
-.ml-\[6\.5vw\] {
-	margin-left: 6.5vw;
-}
 .mb-\[0\.8vw\] {
 	margin-bottom: 0.8vw;
 }
 .mr-\[1vw\] {
 	margin-right: 1vw;
+}
+.mb-\[1\.6vw\] {
+	margin-bottom: 1.6vw;
+}
+.mt-\[9\.4vw\] {
+	margin-top: 9.4vw;
+}
+.ml-\[11vw\] {
+	margin-left: 11vw;
 }
 .flex {
 	display: flex;
@@ -748,8 +715,8 @@ video {
 .h-\[29\.5vw\] {
 	height: 29.5vw;
 }
-.h-\[49\.5vw\] {
-	height: 49.5vw;
+.h-\[46\.5vw\] {
+	height: 46.5vw;
 }
 .h-\[43\.1vw\] {
 	height: 43.1vw;
@@ -763,14 +730,17 @@ video {
 .h-\[0\.5vw\] {
 	height: 0.5vw;
 }
-.h-\[36\.8vw\] {
-	height: 36.8vw;
+.h-\[5vw\] {
+	height: 5vw;
 }
-.h-\[34\.8vw\] {
-	height: 34.8vw;
+.h-\[50vw\] {
+	height: 50vw;
 }
-.h-\[27\.4vw\] {
-	height: 27.4vw;
+.h-\[60vw\] {
+	height: 60vw;
+}
+.h-\[14vw\] {
+	height: 14vw;
 }
 .w-screen {
 	width: 100vw;
@@ -799,6 +769,12 @@ video {
 .w-\[46\.5vw\] {
 	width: 46.5vw;
 }
+.w-\[100vw\] {
+	width: 100vw;
+}
+.w-\[51\.4vw\] {
+	width: 51.4vw;
+}
 .w-\[1\.8vw\] {
 	width: 1.8vw;
 }
@@ -823,15 +799,6 @@ video {
 .w-\[0\.9vw\] {
 	width: 0.9vw;
 }
-.w-\[100vw\] {
-	width: 100vw;
-}
-.w-\[17\.3vw\] {
-	width: 17.3vw;
-}
-.w-\[13\.6vw\] {
-	width: 13.6vw;
-}
 .w-\[50vw\] {
 	width: 50vw;
 }
@@ -840,6 +807,9 @@ video {
 }
 .w-\[11\.8vw\] {
 	width: 11.8vw;
+}
+.w-\[13\.6vw\] {
+	width: 13.6vw;
 }
 .transform {
 	--tw-translate-x: 0;
@@ -892,9 +862,6 @@ video {
 .rounded-\[1vw\] {
 	border-radius: 1vw;
 }
-.rounded-lg {
-	border-radius: 0.5rem;
-}
 .border {
 	border-width: 1px;
 }
@@ -919,6 +886,9 @@ video {
 }
 .font-neoeb {
 	font-family: NeoEB;
+}
+.font-neor {
+	font-family: NeoR;
 }
 .font-neom {
 	font-family: NeoM;
@@ -977,14 +947,14 @@ video {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
+.duration-700 {
+	transition-duration: 700ms;
+}
 .duration-\[1\.5s\] {
 	transition-duration: 1.5s;
 }
 .duration-\[0\.8s\] {
 	transition-duration: 0.8s;
-}
-.shadow-xl {
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 @font-face {
@@ -1022,4 +992,16 @@ video {
 @font-face {
     font-family:"NeoUL";
     src:url("./../assets/font/appleSDGothicNeoUL.ttf");
+} 
+.hover\:scale-125:hover {
+	--tw-scale-x: 1.25;
+	--tw-scale-y: 1.25;
+} 
+.hover\:scale-\[1vw\]:hover {
+	--tw-scale-x: 1vw;
+	--tw-scale-y: 1vw;
+} 
+.hover\:scale-50:hover {
+	--tw-scale-x: .5;
+	--tw-scale-y: .5;
 } 
