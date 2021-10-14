@@ -1,7 +1,6 @@
  
 
 function SliderCenterBigChild({index,img}){
- console.log(img);
     return (
         <>
             <div className="mt-[3.5vw] mb-[3.5vw]">

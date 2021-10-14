@@ -1,5 +1,4 @@
 function AutoSliderChild({index,img}){
-    console.log(img);
         return (
             <>
                 <div className="">

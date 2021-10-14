@@ -9,14 +9,34 @@ import text4 from "./assets/img/main-section3/text4.png"
 import logo from "./assets/img/header/logo.png";
 import iconGroup from "./assets/img/main-section4/icongroup.png"
 import movieImg from "./assets/img/main-section7/card.png"
+import newsImg1 from "./assets/img/main-section8/news1.png"
+import newsImg2 from "./assets/img/main-section8/news2.png"
+import newsImg3 from "./assets/img/main-section8/news3.png"
+import newsBtn from "./assets/img/main-section8/news_button.png"
+import newsBtnHv from "./assets/img/main-section8/news_button_hover.png"
+import infoImg1 from "./assets/img/main-section8/company-info1.png"
+import infoImg2 from "./assets/img/main-section8/company-info2.png"
+import infoBtn1 from "./assets/img/main-section8/company-info-button1.png"
+import infoBtn2 from "./assets/img/main-section8/company-info-button2.png"
+import appDown from "./assets/img/main-section8/app_download.png"
+import apple from "./assets/img/main-section8/app_store.png"
+import google from "./assets/img/main-section8/googleplay.png"
 //
 import SliderCenterBig from "./component/sliderCenterBig";
 import Slider from "../src/component/Slider";
 import Scrollview from "./component/Scrollview";
 import AutoSlider from "./component/AutoSlider";
+import NewsBox from "./component/NewsBox";
+import CompanyBox from "./component/CompanyBox";
+
 import { useEffect, useRef, useState } from "react";
 const App = () => {
-    
+    const newsImg = [newsImg1, newsImg2, newsImg3];
+    let [newsBtnActive,setNewsBtnActive] = useState(true);
+    const infoImg = [
+        {background:infoImg1, button:infoBtn1},
+        {background:infoImg2, button:infoBtn2}
+    ]
   
 
     return (
@@ -79,8 +99,50 @@ const App = () => {
                 </ul>
         </div>
         
-        <div>
-         <AutoSlider/>
+        <div className="h-[35vw] border">
+            <div className="flex items-center mb-[1.6vw] mt-[9.4vw]">
+                <p className="font-neob text-[2.6vw] ml-[11vw] mr-[0.5vw]">Instagram</p>
+                <p className="text-[1.4vw] font-neosb">@uahage_official</p>
+            </div>
+            <div className="h-[14vw] overflow-hidden">
+            <AutoSlider/>
+            </div>
+        </div>
+
+        <div className="ml-[11vw] h-[40vw] border">
+            <p className="font-neor leading-[2.9vw] text-[2.6vw]">우아하게의 <br/><span className="font-neob">새로운 소식</span>을 만나보세요</p>
+            <ul className="ml-[6vw] flex mt-[5.5vw]">
+                {newsImg.map((img) => {
+                    return <NewsBox key={img} img={img} />;
+                })}
+            </ul>
+            <div className="mt-[3.1vw] w-[82vw] flex justify-center" onMouseOver={()=>{
+                console.log(newsBtnActive)
+                setNewsBtnActive(!newsBtnActive)  ;}}>
+                <img className="w-[16.15vw] h-[3.65vw]" src={newsBtn} alt=""/>  
+            </div>
+        </div>
+
+        <div className="h-[20vw] mt-[10vw]  ml-[5vw] border">
+            <ul className="  flex text-[white] justify-center">
+            {infoImg.map((img) => {
+                            return <CompanyBox key={img} img={img} />;
+                        })}
+            </ul>
+        </div>
+        <div className="ml-[10vw]  relative h-[30vw]">
+            <div className="">
+                <img className="absolute w-[82vw]" src={appDown} alt=""/>
+                <div className="ml-[28vw] absolute text-[white] mt-[11.2vw]">
+                    <p className="text-[1.66vw] items-center font-neob"> 우리 아이와 어디 갈지 고민이라면<br/>
+                    <span className="font-neoeb text-[1.97vw]">우아하게와 함께하세요!</span>
+                    </p>
+                </div>
+                <div className="flex absolute top-[18.2vw]">
+                    <img className="w-[12.4vw] ml-[26vw]" src={apple} alt=""/>
+                    <img className="w-[12.4vw] ml-[2vw]" src={google} alt=""/>
+                </div>
+            </div>
         </div>
 
         </div>
