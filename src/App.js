@@ -21,6 +21,13 @@ import infoBtn2 from "./assets/img/main-section8/company-info-button2.png"
 import appDown from "./assets/img/main-section8/app_download.png"
 import apple from "./assets/img/main-section8/app_store.png"
 import google from "./assets/img/main-section8/googleplay.png"
+import facebook from "./assets/img/footer/facebook.png"
+import instagram from "./assets/img/footer/instagram.png"
+import blog from "./assets/img/footer/blog.png"
+import twitter from "./assets/img/footer/twitter.png"
+import youtube from "./assets/img/footer/youtube.png"
+import flogo from "./assets/img/footer/logo.png"
+import filebtn from "./assets/img/footer/filebtn.png"
 //
 import SliderCenterBig from "./component/sliderCenterBig";
 import Slider from "../src/component/Slider";
@@ -28,19 +35,29 @@ import Scrollview from "./component/Scrollview";
 import AutoSlider from "./component/AutoSlider";
 import NewsBox from "./component/NewsBox";
 import CompanyBox from "./component/CompanyBox";
-
-import { useEffect, useRef, useState } from "react";
+import Recruitment from "./component/Recruitment";
+import Communication from "./component/Communication"
+import { useState } from "react";
+import { useRecoilValue, } from "recoil";
+import recruitmentView from "./atom/recruitmentView";
+import communicationView from "./atom/communicationView";
 const App = () => {
     const newsImg = [newsImg1, newsImg2, newsImg3];
     let [newsBtnActive,setNewsBtnActive] = useState(true);
+    const recruitmentPageView = useRecoilValue(recruitmentView); 
+    const communicationPageView = useRecoilValue(communicationView);           
+    
     const infoImg = [
         {background:infoImg1, button:infoBtn1},
         {background:infoImg2, button:infoBtn2}
     ]
-  
+
 
     return (
     <div className="App">
+        
+        {recruitmentPageView?<Recruitment/>:null}
+        {communicationPageView?<Communication/>:null}
         <div className="absolute z-10 flex justify-center w-screen ">
             <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
             <img className="w-[10vw]" src={logo} alt=""/>
@@ -50,16 +67,12 @@ const App = () => {
             </ul>
             </div> 
         </div>
-        
         <div className="w-screen  h-[49.4vw]">
             <Slider/>
         </div>
-     
-
         <div className="flex w-screen h-[49vw]  justify-center ">
             <Scrollview page={2}/>
         </div>
-
         <div className="flex w-screen h-[72.6vw] relative justify-center">
             <img className="h-[66vw] absolute" src={backgroud} alt=""/>
             <div className="absolute text-[white] mt-[7.7vw] ">
@@ -91,15 +104,15 @@ const App = () => {
         <div className="w-screen h-[49vw] flex justify-center">
         <Scrollview page={4}/>
         </div>
-        <div className="flex flex-col w-[100vw] h-[49vw] border items-center justify-center">
-                <img className="w-[51.4vw] duration-700 hover:scale-50" src={movieImg} alt=""/>
+        <div className="flex flex-col w-[100vw] h-[49vw]  items-center justify-center">
+                <img className="w-[51.4vw] transition duration-1000 transform hover:scale-110" src={movieImg} alt=""/>
                 <ul className="flex">
                     <li className="text-[2.6vw] font-neor leading-[2.9vw] mr-[4vw]">우아하게는<br/><span className="font-neob">우리아이와 함께하다</span><br/>라는 뜻이에요</li>
                     <li className="text-[1.4vw] font-neosb leading-[1.9vw]">고객에게는 마음 편한 외식장소를 제공하고<br/> 제휴 상점에는 매장 홍보 서비스를 제공하여<br/> 지속적인 고객 유치를 지원하게 됩니다</li>
                 </ul>
         </div>
         
-        <div className="h-[35vw] border">
+        <div className="h-[35vw] ">
             <div className="flex items-center mb-[1.6vw] mt-[9.4vw]">
                 <p className="font-neob text-[2.6vw] ml-[11vw] mr-[0.5vw]">Instagram</p>
                 <p className="text-[1.4vw] font-neosb">@uahage_official</p>
@@ -109,24 +122,27 @@ const App = () => {
             </div>
         </div>
 
-        <div className="ml-[11vw] h-[40vw] border">
+        <div className="ml-[11vw] h-[40vw] ">
             <p className="font-neor leading-[2.9vw] text-[2.6vw]">우아하게의 <br/><span className="font-neob">새로운 소식</span>을 만나보세요</p>
             <ul className="ml-[6vw] flex mt-[5.5vw]">
-                {newsImg.map((img) => {
-                    return <NewsBox key={img} img={img} />;
+                {newsImg.map((img, index) => {
+                    return <NewsBox key={index} img={img} />;
                 })}
             </ul>
-            <div className="mt-[3.1vw] w-[82vw] flex justify-center" onMouseOver={()=>{
-                console.log(newsBtnActive)
-                setNewsBtnActive(!newsBtnActive)  ;}}>
-                <img className="w-[16.15vw] h-[3.65vw]" src={newsBtn} alt=""/>  
+            <div className="mt-[3.1vw] w-[82vw] flex duration-1000 justify-center cursor-pointer" 
+                onMouseOver={()=>{setNewsBtnActive(false)}}
+                onMouseOut={()=>setNewsBtnActive(true)}
+            >
+                
+                {newsBtnActive?
+                    <img className="w-[16.15vw] h-[3.65vw]  transform" src={newsBtn} alt="" /> : <img className="w-[16.15vw] h-[3.65vw] duration-1000 transform" src={newsBtnHv} alt="" />  }
             </div>
         </div>
 
-        <div className="h-[20vw] mt-[10vw]  ml-[5vw] border">
+        <div className="h-[20vw] mt-[10vw]  ml-[5vw] ">
             <ul className="  flex text-[white] justify-center">
-            {infoImg.map((img) => {
-                            return <CompanyBox key={img} img={img} />;
+            {infoImg.map((img, index) => {
+                            return <CompanyBox key={index} img={img} index={index} />;
                         })}
             </ul>
         </div>
@@ -142,6 +158,28 @@ const App = () => {
                     <img className="w-[12.4vw] ml-[26vw]" src={apple} alt=""/>
                     <img className="w-[12.4vw] ml-[2vw]" src={google} alt=""/>
                 </div>
+            </div>
+        </div>
+        <div className="w-[100vw] h-[15vw] flex justify-center bg-[#2b2b2b]">
+            <div className="w-[80vw]">
+                <div className="flex items-center mt-[1.6vw] mb-[1vw] ">
+                    <img className="w-[10vw] mr-[3.6vw]" src={flogo}/>
+                    <p className="text-[white] text-[1vw] font-neol">서비스 이용약관 | 개인정보 보호정책 | 위치기반서비스 이용약관</p>
+                    <ul className="flex items-center ml-[26.9vw]">
+                        <li className="ml-[1.5vw]"> <img className="w-[0.7vw]"  src={facebook} alt=""/></li>
+                        <li className="ml-[1.5vw]"> <img className="w-[1.6vw]" src={twitter} alt=""/></li>
+                        <li className="ml-[1.5vw]"> <img className="w-[1.8vw]"  src={instagram} alt=""/></li>
+                        <li className="ml-[1.5vw]"> <img className="w-[1vw]"  src={blog} alt=""/></li>
+                        <li className="ml-[1.5vw]"> <img className="w-[1.9vw]"  src={youtube} alt=""/></li>
+                    </ul>
+                </div>
+            <hr className="border-[#878787]"/>
+            <div>
+            <p className="mt-[1.5vw] text-[#878787] font-neol text-[1vw] leading-[1.8vw]">사업자명 : (주)호호컴퍼니 | 대표 : 김화영 <br/>
+                        사업자등록번호 : 322-86-01766 | TEL : 061-331-3117 | Email : hohoco0701@gmail.com <br/>
+                        주소 : 58325)전라남도 나주시 빛가람로 740 한빛타워 6층 601호<br/>
+                        COPYRIGHT(C) hohocompany Inc. ALL RIGHTS RESERVED</p>
+            </div>
             </div>
         </div>
 

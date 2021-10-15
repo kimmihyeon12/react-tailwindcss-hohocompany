@@ -8,7 +8,7 @@ function SliderText(){
     const [bannerCount, setBannerCount] = useRecoilState(bannerCountState);     
  
     const  Text1 = <div className="absolute w-[50vw] top-[17.2vw]  left-[10.9vw]  leading-[3.6vw]">
-        <img className="absolute z-20 w-[11.6vw] top-[4.9vw]" src={highLight} alt=""/>
+        <img className="absolute w-[11.6vw] top-[4.9vw]" src={highLight} alt=""/>
         <p className="absolute text-[1.9vw] font-neob">아기의자, 아기메뉴, 유모차 출입...<br/></p>
         <p className="absolute  z-10 top-[3.5vw]  text-[3.1vw] font-neoeb">미리 알고<br/>방문할 수 없을까요?</p>
     </div> ;

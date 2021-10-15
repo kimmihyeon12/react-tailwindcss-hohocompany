@@ -30,16 +30,12 @@ export default class SliderCenterBig extends Component {
 			className: "center",
 			centerMode: true,
 			infinite: true,
-			centerPadding: "-60px",
+			centerPadding: "-40vw",
 			slidesToShow: 6.4,
 			speed: 500,
             beforeChange: (current, next) => {
-                if(next>=7)this.setState({ activeSlide:next%7 })
-              //  if(current==0)this.setState({ activeSlide: 6 })
-                else
-                this.setState({ activeSlide: next })},
-                
-
+                this.setState({ activeSlide:next%7 })
+            }
 		};
 		return (
 			<div>	
@@ -54,13 +50,7 @@ export default class SliderCenterBig extends Component {
                     })
                     }  
 				</Slider>
-                <p>
-                <div className="w-[100vw] h-[5vw] ">
-                    <button className="slick-prev">fgsfgg</button>
-                    <strong  className="flex items-center justify-center h-[5vw] text-[1.4vw] font-neob">{sliderContent[this.state.activeSlide]}</strong>
-                </div>
-           
-        </p>
+                <p  className="flex items-center justify-center h-[5vw] text-[1.4vw] font-neob">{sliderContent[this.state.activeSlide]}</p>
 			</div>
 		);
 	}
@@ -85,6 +75,9 @@ const cssstyle = `
     outline:none;
 }
 .slick-prev:focus {
+    outline:none;
+ }
+ .slick-next:focus {
     outline:none;
  }
  
