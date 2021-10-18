@@ -21,21 +21,20 @@ export default class AutoSlider extends Component {
             {id:2,img:slider2},];
 
     const settings = {
-        
-        infinite: true,
+        arrows: false,
+        fade: false,
         slidesToShow: 6.3,
-        slidesToScroll: 1,
+        slidesToScroll: 0.5,
         autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 2000,
+        speed: 1000,
+        autoplaySpeed: 1000,
         cssEase: "linear",
-     
     };
     return (
         
         <div className="">
             <style>{}</style>
-               <Slider {...settings}>
+                <Slider {...settings}>
                 {slider.map((slider) => {
                     return <AutoSliderChild key={slider.id} id={slider.id} img={slider.img} />;
                 })
@@ -44,10 +43,8 @@ export default class AutoSlider extends Component {
                     return <AutoSliderChild key={slider.id} id={slider.id} img={slider.img} />;
                 })
                 }
-             
             </Slider>
         </div>
     );
 }
 }
- 

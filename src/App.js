@@ -51,7 +51,7 @@ const App = () => {
         {background:infoImg1, button:infoBtn1},
         {background:infoImg2, button:infoBtn2}
     ]
-
+    
 
     return (
     <div className="App">
@@ -101,7 +101,7 @@ const App = () => {
         <SliderCenterBig/>
         </div>
 
-        <div className="w-screen h-[49vw] flex justify-center">
+        <div className="w-screen h-[49vw] flex justify-center bg-white z-10">
         <Scrollview page={4}/>
         </div>
         <div className="flex flex-col w-[100vw] h-[49vw]  items-center justify-center">
@@ -117,7 +117,7 @@ const App = () => {
                 <p className="font-neob text-[2.6vw] ml-[11vw] mr-[0.5vw]">Instagram</p>
                 <p className="text-[1.4vw] font-neosb">@uahage_official</p>
             </div>
-            <div className="h-[14vw] overflow-hidden">
+            <div className="">
             <AutoSlider/>
             </div>
         </div>

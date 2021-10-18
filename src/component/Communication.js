@@ -12,7 +12,6 @@ function Recruitment(){
             <div className="">
                 <div className="flex  leading-[2.8vw] items-end">
                     <h1 className="text-[2.5vw] font-neob">우아하게는<br/>고객의 경험을 통해 서비스를<br/>만들고 발전해 나가고자 합니다</h1>
-                  
                 </div>
                 <p className="mt-[1vw] font-neom text-[#434343] text-[1vw]">언제든지 문의사항이나, 지원이 필요한 부분을 알려주세요.<br/>가능하면 최대한 지원하겠습니다. 감사합니다.</p>
             </div>

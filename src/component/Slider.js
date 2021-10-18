@@ -21,11 +21,12 @@ function Slider(){
     const banner = [banner1,banner2,banner3,banner4];
     const [bannerCount,setBannerCount] = useRecoilState(bannerCountState);             
     const [barwidth,setBarwidth] = useState(0);
+    let usetime = 300;
     useEffect(()=>{
-       
+        if(bannerCount==4) usetime =0 ;
+        else usetime = 300;
         setTimeout(() => {
-            imageRef.current.style.transform='scale(1.1)';
-            imageRef.current.style.transition='3.5s';
+           
             // setBarwidth(0);
             if(bannerCount<0){
                 setBannerCount(3)
@@ -33,9 +34,10 @@ function Slider(){
             if(bannerCount>3){
                 setBannerCount(0);
             }
-        }, 150);
-       
-       
+            imageRef.current.style.transform='scale(1.1)';
+            imageRef.current.style.transition='3.5s';
+        }, usetime);
+
         
         return () => {
         

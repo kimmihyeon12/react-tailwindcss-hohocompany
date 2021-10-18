@@ -40,3 +40,6 @@
     src:url("./../assets/font/appleSDGothicNeoUL.ttf");
 } 
 
+body{
+    overflow-x: hidden;
+}
