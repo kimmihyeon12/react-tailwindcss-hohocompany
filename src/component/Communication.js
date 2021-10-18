@@ -1,13 +1,14 @@
 import hand from "../assets/img/popup/hand.png"
 import filebtn from "../assets/img/popup/filebtn.png"
+import cancel from "../assets/img/popup/cancel.png"
 import { useRecoilState } from "recoil";
 import communicationView from "../atom/communicationView";
 function Recruitment(){
     const [communicationPageView,setcommunicationPageView] = useRecoilState(communicationView);      
     return(
         <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
-        <div className="mt-[2vw] overflow-y-hidden  w-[60vw] h-[90vh] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
-        <img className="ml-[90%] h-[1vw]"src={hand} alt="" onClick={()=>{setcommunicationPageView(!communicationPageView)}}/>
+        <div className="mt-[2vw] overflow-y-hidden  h-[90vh]   w-[60vw] pl-[5.6vw] pr-[5.6vw] pb-[5.6vw] pt-[2vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
+        <img className="ml-[100%]  h-[4vw]"src={cancel}  alt="" onClick={()=>{setcommunicationPageView(!communicationPageView)}}/>
             <div className="">
                 <div className="flex  leading-[2.8vw] items-end">
                     <h1 className="text-[2.5vw] font-neob">우아하게는<br/>고객의 경험을 통해 서비스를<br/>만들고 발전해 나가고자 합니다</h1>

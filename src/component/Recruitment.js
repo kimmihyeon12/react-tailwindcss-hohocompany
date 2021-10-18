@@ -1,13 +1,14 @@
 import hand from "../assets/img/popup/hand.png"
 import filebtn from "../assets/img/popup/filebtn.png"
+import cancel from "../assets/img/popup/cancel.png"
 import { useRecoilState } from "recoil";
 import recruitmentView from "../atom/recruitmentView";
 function Recruitment(){
     const [recruitmentPageView,setRecruitmentPageView] = useRecoilState(recruitmentView);      
     return(
         <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
-        <div className="mt-[2vw] overflow-y-hidden  w-[60vw] h-[38vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
-        <img className="ml-[90%] h-[1vw]"src={hand} alt="" onClick={()=>{setRecruitmentPageView(!recruitmentPageView)}}/>
+        <div className="mt-[2vw] overflow-y-hidden  w-[60vw] h-[90vh] bg-[white]  pl-[5.6vw] pr-[5.6vw] pb-[5.6vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
+        <img className="ml-[100%] h-[4vw]"src={cancel} alt="" onClick={()=>{setRecruitmentPageView(!recruitmentPageView)}}/>
             <div className="">
                 <div className="flex  leading-[2.8vw] items-end">
                     <h1 className="text-[2.5vw] font-neob">안녕하세요.<br/> 우아하게와 무엇을<br/> 함께 하시겠습니까?</h1>

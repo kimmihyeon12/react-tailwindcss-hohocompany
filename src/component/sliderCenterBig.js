@@ -20,7 +20,7 @@ export default class SliderCenterBig extends Component {
         let sliderContent = ["인트로","카테고리 한 눈에 보기","즐겨찾기","목적지 정보","매장 상세 정보" ,"편의시설 필터 설정하기","방문자 리뷰",]
         const slider = [
         {id:3,img:slider3},
-        {id:4,img:slider5},
+        {id:4,img:slider4},
         {id:5,img:slider5},
         {id:6,img:slider6},
         {id:7,img:slider7},

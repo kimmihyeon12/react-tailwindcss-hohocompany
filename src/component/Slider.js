@@ -22,22 +22,27 @@ function Slider(){
     const [bannerCount,setBannerCount] = useRecoilState(bannerCountState);             
     const [barwidth,setBarwidth] = useState(0);
     useEffect(()=>{
-        console.log(imageRef.current.style)
-        
-        imageRef.current.style.transform='scale(1.1)';
-        imageRef.current.style.transition='2.8s';
-        // setBarwidth(0);
-        if(bannerCount<0){
-            setBannerCount(3)
-        }
-        if(bannerCount>3){
-            setBannerCount(0);
-        }
+       
+        setTimeout(() => {
+            imageRef.current.style.transform='scale(1.1)';
+            imageRef.current.style.transition='3.5s';
+            // setBarwidth(0);
+            if(bannerCount<0){
+                setBannerCount(3)
+            }
+            if(bannerCount>3){
+                setBannerCount(0);
+            }
+        }, 150);
+       
        
         
         return () => {
-            imageRef.current.style.transform='scale(1.0)';
-            imageRef.current.style.transition='0s';
+        
+                imageRef.current.style.transform='none';
+                imageRef.current.style.transition='none';
+         
+           
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [bannerCount]);
