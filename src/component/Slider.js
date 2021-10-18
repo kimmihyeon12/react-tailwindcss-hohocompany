@@ -26,7 +26,6 @@ function Slider(){
         if(bannerCount==4) usetime =0 ;
         else usetime = 300;
         setTimeout(() => {
-           
             // setBarwidth(0);
             if(bannerCount<0){
                 setBannerCount(3)
@@ -34,8 +33,8 @@ function Slider(){
             if(bannerCount>3){
                 setBannerCount(0);
             }
-            imageRef.current.style.transform='scale(1.1)';
-            imageRef.current.style.transition='3.5s';
+            imageRef.current.style.transform='scale(1.09)';
+            imageRef.current.style.transition='6s';
         }, usetime);
 
         
@@ -92,8 +91,8 @@ function Slider(){
             <img onClick={()=>{setBannerCount(bannerCount-1)}} className="w-[0.8vw] mr-[0.5vw]" src={leftBtn} alt=""/>
             <p className="mt-[0.2vw] mr-[0.5vw]">0{bannerCount+1}</p>
             <div className="relative w-[10vw] h-[0.5vw]">
-                <div className="absolute w-[10vw] h-[0.5vw] z-100 bg-[rgba(0,0,0,0.2)] rounded-[1vw]" ref={backbar}></div>
-                <div className="absolute w-[1vw] h-[0.5vw] z-100 bg-[white] rounded-[1vw] " ref={bar}></div>
+                <div className="absolute w-[10vw] h-[0.5vw] z-10 bg-[rgba(0,0,0,0.2)] rounded-[1vw]" ref={backbar}></div>
+                <div className="absolute w-[1vw] h-[0.5vw] z-10 bg-[white] rounded-[1vw] " ref={bar}></div>
             </div>
             <p className="mt-[0.2vw] ml-[0.5vw] mr-[0.5vw]">0{bannerCount !== 3?bannerCount+2:"1"}</p>
             <img onClick={()=>{setBannerCount(bannerCount+1)}} className="w-[0.8vw]" src={rightBtn} alt=""/>

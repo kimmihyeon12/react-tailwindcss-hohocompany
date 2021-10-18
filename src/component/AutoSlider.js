@@ -26,8 +26,8 @@ export default class AutoSlider extends Component {
         slidesToShow: 6.3,
         slidesToScroll: 0.5,
         autoplay: true,
-        speed: 1000,
-        autoplaySpeed: 1000,
+        speed: 2000,
+        autoplaySpeed: 2000,
         cssEase: "linear",
     };
     return (

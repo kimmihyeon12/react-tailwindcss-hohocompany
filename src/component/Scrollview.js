@@ -10,7 +10,7 @@ function UpAnimation({page}){
     const text1 = useRef();
     const img1 = useRef();
     let scrollbarSize = (document.documentElement.scrollHeight-736)/13;
-    if(page===4) { scrollbarSize = (document.documentElement.scrollHeight-736)/2.1;}
+    if(page===4) { scrollbarSize = (document.documentElement.scrollHeight-736)/2.2;}
     
     const [scrollY, setScrollY] = useState(0);
     useEffect(() => {
@@ -29,7 +29,7 @@ function UpAnimation({page}){
             }
             if(page===4){   
                 if(scrollY < scrollbarSize){
-                    text1.current.style.transform = "translate(0, 150%)"
+                    text1.current.style.transform = "translate(0, 180%)"
                     img1.current.style.transform = "translate(0, 30%)"
                 }
                 if(scrollY > scrollbarSize){
@@ -62,7 +62,19 @@ function UpAnimation({page}){
                 <ul>
                     <li className="text-[2.6vw] font-neob mb-[0.5vw] leading-[2.9vw]"> 육아맘과 육아대디에게<br/>꼭 필요한 <span className="text-[#f93873]">정보를 편리하게</span></li>
                     <li className="text-[1.4vw] font-neosb mb-[1vw] leading-[1.9vw]">상황과 필요에 맞춰 영·유아 보호자를 위한<br/> 위치·장소 정보 제공 서비스를 제공합니다</li>
-                    <li><img  className="w-[24vw]" src={tag}alt=""/></li>
+                    <li>
+                        <ul className="flex mb-[1vw]">
+                            <li><div className="border-[0.15vw] border-[#f93873] w-[7.6vw] h-[2.5vw] flex justify-center items-center text-[1.15vw] font-neob text-[#f93873] rounded-[2vw] mr-[0.5vw]">#아기의자</div></li>
+                            <li><div className="border-[0.15vw] border-[#f93873] w-[7.6vw] h-[2.5vw] flex justify-center items-center text-[1.15vw] font-neob text-[#f93873] rounded-[2vw] mr-[0.5vw]">#아기메뉴</div></li>
+                            <li><div className="border-[0.15vw] border-[#39396c] w-[7.6vw] h-[2.5vw] flex justify-center items-center text-[1.15vw] font-neob text-[#39396c] rounded-[2vw]">#놀이방</div></li>
+                        </ul>
+                        <ul className="flex">
+                            <li><div className="border-[0.15vw] border-[#39396c] w-[7.6vw] h-[2.5vw] flex justify-center items-center text-[1.15vw] font-neob text-[#39396c] rounded-[2vw] mr-[0.5vw]">#아기침대</div></li>
+                            <li><div className="border-[0.15vw] border-[#f93873] w-[7.6vw] h-[2.5vw] flex justify-center items-center text-[1.15vw] font-neob text-[#f93873] rounded-[2vw] mr-[0.5vw]">#아기식기</div></li>
+                            
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
             <img ref={img1} className="w-[45vw] h-[47vw] ml-[3.6vw] mt-[2.6vw] duration-[0.6s] " src={phoneimg} alt=""/>   

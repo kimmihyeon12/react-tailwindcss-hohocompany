@@ -28,6 +28,8 @@ import twitter from "./assets/img/footer/twitter.png"
 import youtube from "./assets/img/footer/youtube.png"
 import flogo from "./assets/img/footer/logo.png"
 import filebtn from "./assets/img/footer/filebtn.png"
+import mouse from "./assets/img/main-section1/mouse.png"
+import kakaouahage from "./assets/img/footer/kakao.png"
 //
 import SliderCenterBig from "./component/sliderCenterBig";
 import Slider from "../src/component/Slider";
@@ -48,8 +50,8 @@ const App = () => {
     const communicationPageView = useRecoilValue(communicationView);           
     
     const infoImg = [
-        {background:infoImg1, button:infoBtn1},
-        {background:infoImg2, button:infoBtn2}
+        {background:infoImg1, text:"함께 성장하기"},
+        {background:infoImg2, text:"소통하기"}
     ]
     
 
@@ -62,13 +64,15 @@ const App = () => {
             <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
             <img className="w-[10vw]" src={logo} alt=""/>
             <ul className="flex text-[1.25vw] ">
-                <li className="font-neoh mr-[0.9vw]">우아하게 소개</li>
-                <li className="font-neob">회사소개</li>
+                <li className="font-neoh ">우아하게 소개</li>
             </ul>
             </div> 
         </div>
         <div className="w-screen  h-[49.4vw]">
             <Slider/>
+            <div className=" absolute animate-bounce-2s z-10 top-[45vw] left-[49vw]">
+                    <img className="w-[1.4vw]" src={mouse} alt=""/>
+                </div>
         </div>
         <div className="flex w-screen h-[49vw]  justify-center ">
             <Scrollview page={2}/>
@@ -160,6 +164,12 @@ const App = () => {
                 </div>
             </div>
         </div>
+        <div className="flex w-[100vw] justify-center">
+        <div className="w-[80vw] flex justify-end mb-[3.5vw]">
+            <img className="w-[14vw]" src={kakaouahage}/>
+        </div>
+        </div>
+       
         <div className="w-[100vw] h-[15vw] flex justify-center bg-[#2b2b2b]">
             <div className="w-[80vw]">
                 <div className="flex items-center mt-[1.6vw] mb-[1vw] ">

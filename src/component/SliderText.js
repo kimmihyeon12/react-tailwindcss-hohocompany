@@ -8,7 +8,7 @@ function SliderText(){
     const [bannerCount, setBannerCount] = useRecoilState(bannerCountState);     
  
     const  Text1 = <div className="absolute w-[50vw] top-[17.2vw]  left-[10.9vw]  leading-[3.6vw]">
-        <img className="absolute w-[11.6vw] top-[4.9vw]" src={highLight} alt=""/>
+        <img className="absolute w-[11.8vw] top-[5vw]" src={highLight} alt=""/>
         <p className="absolute text-[1.9vw] font-neob">아기의자, 아기메뉴, 유모차 출입...<br/></p>
         <p className="absolute  z-10 top-[3.5vw]  text-[3.1vw] font-neoeb">미리 알고<br/>방문할 수 없을까요?</p>
     </div> ;
@@ -22,7 +22,7 @@ function SliderText(){
     </div> ;       
     const Text4 = <div className="absolute top-[16.6vw] w-[50vw] left-[10.9vw]  leading-[3.6vw] text-[3.1vw] font-neosb">
         <p>특별한 날은<br/></p>
-        <p className="mb-[0.8vw]"><span className="font-neoh text-[#d9427a]">우아하게와</span> 함께 하세요</p>
+        <p className="mb-[0.9vw]"><span className="font-neoh text-[#d9427a]">우아하게</span>와 함께 하세요</p>
         <div className="flex">
             <img className="w-[11.8vw] mr-[1vw]" src={appstoredown} alt=""/>
             <img className="w-[11.8vw]" src={googlestoredown} alt=""/>

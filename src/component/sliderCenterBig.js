@@ -31,7 +31,7 @@ export default class SliderCenterBig extends Component {
 			centerMode: true,
 			infinite: true,
 			centerPadding: "-40vw",
-			slidesToShow: 6.4,
+			slidesToShow: 6.38,
 			speed: 500,
             beforeChange: (current, next) => {
                 this.setState({ activeSlide:next%7 })
@@ -50,7 +50,7 @@ export default class SliderCenterBig extends Component {
                     })
                     }  
 				</Slider>
-                <p  className="flex items-center justify-center h-[5vw] text-[1.4vw] font-neob">{sliderContent[this.state.activeSlide]}</p>
+                <p  className="flex items-center justify-center h-[5vw] text-[1.2vw] font-neob">{sliderContent[this.state.activeSlide]}</p>
 			</div>
 		);
 	}
