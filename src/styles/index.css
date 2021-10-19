@@ -619,14 +619,11 @@ video {
 .z-10 {
 	z-index: 10;
 }
-.z-50 {
-	z-index: 50;
+.z-30 {
+	z-index: 30;
 }
 .z-\[-1\] {
 	z-index: -1;
-}
-.z-30 {
-	z-index: 30;
 }
 .mt-\[2\.8vw\] {
 	margin-top: 2.8vw;
@@ -961,20 +958,14 @@ video {
 .w-\[60vw\] {
 	width: 60vw;
 }
-.w-\[2\.9vw\] {
-	width: 2.9vw;
+.w-\[8\.5vw\] {
+	width: 8.5vw;
 }
 .w-\[6px\] {
 	width: 6px;
 }
 .w-\[100\%\] {
 	width: 100%;
-}
-.w-\[5\.2vw\] {
-	width: 5.2vw;
-}
-.w-\[6\.4vw\] {
-	width: 6.4vw;
 }
 .w-\[11\.6vw\] {
 	width: 11.6vw;
@@ -993,12 +984,6 @@ video {
 }
 .w-\[20\.4vw\] {
 	width: 20.4vw;
-}
-.w-\[4\.1vw\] {
-	width: 4.1vw;
-}
-.w-\[6\.7vw\] {
-	width: 6.7vw;
 }
 .w-\[41vw\] {
 	width: 41vw;
@@ -1062,6 +1047,19 @@ video {
 .animate-bounce-4s {
 	animation: bounce 4s linear infinite;
 }
+@keyframes fade-in {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+.animate-fade-in {
+	animation: fade-in 1s ease-out;
+}
 .cursor-pointer {
 	cursor: pointer;
 }
@@ -1112,13 +1110,13 @@ video {
 .rounded-\[1vw\] {
 	border-radius: 1vw;
 }
-.border {
-	border-width: 1px;
-}
 .border-2 {
 	border-width: 2px;
 }
 .border-\[1px\] {
+	border-width: 1px;
+}
+.border {
 	border-width: 1px;
 }
 .border-\[0\.15vw\] {
@@ -1149,10 +1147,6 @@ video {
 .bg-\[\#2b2b2b\] {
 	--tw-bg-opacity: 1;
 	background-color: rgba(43, 43, 43, var(--tw-bg-opacity));
-}
-.bg-\[black\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
 .bg-\[white\] {
 	--tw-bg-opacity: 1;
@@ -1227,9 +1221,6 @@ video {
 .text-center {
 	text-align: center;
 }
-.font-neoh {
-	font-family: NeoH;
-}
 .font-neob {
 	font-family: NeoB;
 }
@@ -1248,8 +1239,8 @@ video {
 .font-neom {
 	font-family: NeoM;
 }
-.text-\[1\.25vw\] {
-	font-size: 1.25vw;
+.font-neoh {
+	font-family: NeoH;
 }
 .text-\[2\.6vw\] {
 	font-size: 2.6vw;
@@ -1355,11 +1346,14 @@ video {
 .duration-1000 {
 	transition-duration: 1000ms;
 }
-.duration-\[1\.0s\] {
-	transition-duration: 1.0s;
+.duration-\[2\.0s\] {
+	transition-duration: 2.0s;
 }
 .duration-\[0\.6s\] {
 	transition-duration: 0.6s;
+}
+.duration-\[1\.0s\] {
+	transition-duration: 1.0s;
 }
 .shadow-lg {
 	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -1409,6 +1403,10 @@ body{
 .hover\:scale-110:hover {
 	--tw-scale-x: 1.1;
 	--tw-scale-y: 1.1;
+} 
+
+.hover\:cursor-pointer:hover {
+	cursor: pointer;
 } 
 
 .focus\:outline-none:focus {

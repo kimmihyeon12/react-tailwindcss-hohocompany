@@ -62,10 +62,7 @@ const App = () => {
         {communicationPageView?<Communication/>:null}
         <div className="absolute z-10 flex justify-center w-screen ">
             <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
-            <img className="w-[10vw]" src={logo} alt=""/>
-            <ul className="flex text-[1.25vw] ">
-                <li className="font-neoh ">우아하게 소개</li>
-            </ul>
+            <img className="w-[10vw] animate-fade-in" src={logo} alt=""/>
             </div> 
         </div>
         <div className="w-screen  h-[49.4vw]">
@@ -161,13 +158,14 @@ const App = () => {
                 </div>
                 <div className="flex absolute top-[18.2vw]">
                     <img className="w-[12.4vw] ml-[26vw]" src={apple} alt=""/>
-                    <img className="w-[12.4vw] ml-[2vw]" src={google} alt=""/>
+                    <a href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage"><img className="w-[12.4vw] ml-[2vw]" src={google} alt=""/></a>
                 </div>
             </div>
         </div>
         <div className="flex w-[100vw] justify-center">
         <div className="w-[80vw] flex justify-end mb-[3.5vw]">
-            <img className="w-[14vw]" src={kakaouahage}/>
+            <a href="https://pf.kakao.com/_Uexnws/chat">   <img className="w-[14vw] hover:cursor-pointer" src={kakaouahage} /></a>
+         
         </div>
         </div>
        

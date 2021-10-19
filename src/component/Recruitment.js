@@ -19,18 +19,17 @@ function Recruitment(){
             <div className="mt-[2vw]">
                 <h1 className="text-[1.5vw] font-neob">담당자 정보</h1>
                 <ul>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[4.1vw] border-b font-neob text-[1.2vw]">회사명<p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[6.7vw] border-b font-neob text-[1.2vw]">성함 / 직책<p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[5.2vw] border-b font-neob text-[1.2vw]">휴대전화<p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[6.4vw] border-b font-neob text-[1.2vw]">이메일주소<p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                  
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">회사명<p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">성함 / 직책<p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">휴대전화<p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">이메일주소<p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    
                 </ul>
             </div>
             <div className="mt-[2vw]">
                 <h1 className="text-[1.5vw] font-neob">제안내용</h1>
                 <ul>
-                <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[2.9vw] border-b font-neob text-[1.2vw]">제목<p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                 
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">제목<p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
                     <li> <textarea  className="mt-[1.5vw] mb-[1vw] text-[1.2vw] border-[1px]  focus:outline-none w-[100%] rounded-lg p-[1vw] placeholder-[#434343] font-neom" cols="50" rows="10" placeholder="내용을 입력해주세요"></textarea></li>      
                 </ul>
             </div>

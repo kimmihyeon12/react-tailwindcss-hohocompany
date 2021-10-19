@@ -24,7 +24,7 @@ export default class AutoSlider extends Component {
         arrows: false,
         fade: false,
         slidesToShow: 6.3,
-        slidesToScroll: 0.5,
+        slidesToScroll: 0.2,
         autoplay: true,
         speed: 2000,
         draggable: false,

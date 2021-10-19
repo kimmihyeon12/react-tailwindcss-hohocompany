@@ -23,27 +23,39 @@ function Slider(){
     const [barwidth,setBarwidth] = useState(0);
     let usetime = 300;
     useEffect(()=>{
+        const imageEl = imageRef.current;
+
         if(bannerCount==4) usetime =0 ;
         else usetime = 300;
+       
         setTimeout(() => {
             // setBarwidth(0);
+            
+            imageEl.classList.add("animate-fade-in");
+          
+           
             if(bannerCount<0){
                 setBannerCount(3)
             }
             if(bannerCount>3){
                 setBannerCount(0);
             }
-            imageRef.current.style.transform='scale(1.09)';
-            imageRef.current.style.transition='6s';
-        }, usetime);
+           
+           
+       //     imageRef.current.style.transform='scale(1.09)';
+       //     imageRef.current.style.transition='6s';
+        }, 0);
 
         
         return () => {
-        
-                imageRef.current.style.transform='none';
-                imageRef.current.style.transition='none';
-         
-           
+            for(let i = 0; i < imageEl.classList.length; i++){
+                console.debug(imageEl.classList.item(i));
+                if(imageEl.classList.item(i) === "animate-fade-in"){
+                    imageEl.classList.remove("animate-fade-in");
+                }
+            }
+            //    imageRef.current.style.transform='none';
+           //     imageRef.current.style.transition='none';
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [bannerCount]);
@@ -88,7 +100,7 @@ function Slider(){
             <SliderText />
         </div>
         <div className="absolute flex items-center text-[1.2vw] font-neob text-[white] left-[10vw] top-[42vw]">
-            <img onClick={()=>{setBannerCount(bannerCount-1)}} className="w-[0.8vw] mr-[0.5vw]" src={leftBtn} alt=""/>
+            <img onClick={()=>{setBannerCount(bannerCount-1)}} className="w-[0.8vw] mr-[0.5vw] " src={leftBtn} alt=""/>
             <p className="mt-[0.2vw] mr-[0.5vw]">0{bannerCount+1}</p>
             <div className="relative w-[10vw] h-[0.5vw]">
                 <div className="absolute w-[10vw] h-[0.5vw] z-10 bg-[rgba(0,0,0,0.2)] rounded-[1vw]" ref={backbar}></div>
