@@ -50,8 +50,8 @@ const App = () => {
     const communicationPageView = useRecoilValue(communicationView);           
     
     const infoImg = [
-        {background:infoImg1, text:"함께 성장하기"},
-        {background:infoImg2, text:"소통하기"}
+        {background:infoImg1, text:"함께 성장하기", title:"Partnership Proposal" ,content:"함께 성장할 비즈니스 제휴와  파트너쉽을 기다립니다"},
+        {background:infoImg2, text:"소통하기", title:"Opinion and Support" ,content:"여러분의 의견을 자유롭게 알려주세요 응원의 메시지도 좋습니다"}
     ]
     
 
@@ -116,12 +116,13 @@ const App = () => {
                 </ul>
         </div>
         
-        <div className="h-[35vw] ">
+        <div className="relative h-[35vw] ">
             <div className="flex items-center mb-[1.6vw] mt-[9.4vw]">
                 <p className="font-neob text-[2.6vw] ml-[11vw] mr-[0.5vw]">Instagram</p>
                 <p className="text-[1.4vw] font-neosb">@uahage_official</p>
             </div>
-            <div className="">
+           
+            <div className=" h-[14vw]">
             <AutoSlider/>
             </div>
         </div>

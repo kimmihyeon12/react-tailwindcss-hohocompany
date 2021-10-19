@@ -27,11 +27,13 @@ export default class AutoSlider extends Component {
         slidesToScroll: 0.5,
         autoplay: true,
         speed: 2000,
+        draggable: false,
+        pauseOnHover:false,
         autoplaySpeed: 2000,
         cssEase: "linear",
     };
     return (
-        
+        <>
         <div className="">
             <style>{}</style>
                 <Slider {...settings}>
@@ -45,6 +47,8 @@ export default class AutoSlider extends Component {
                 }
             </Slider>
         </div>
+        
+        </>
     );
 }
 }
