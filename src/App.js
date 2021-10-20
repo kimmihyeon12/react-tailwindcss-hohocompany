@@ -32,7 +32,6 @@ import mouse from "./assets/img/main-section1/mouse.png"
 import kakaouahage from "./assets/img/footer/kakao.png"
 //
 import SliderCenterBig from "./component/sliderCenterBig";
-import Slider from "../src/component/Slider";
 import Scrollview from "./component/Scrollview";
 import AutoSlider from "./component/AutoSlider";
 import NewsBox from "./component/NewsBox";
@@ -43,6 +42,7 @@ import { useState } from "react";
 import { useRecoilValue, } from "recoil";
 import recruitmentView from "./atom/recruitmentView";
 import communicationView from "./atom/communicationView";
+import FadeSlider from "../src/component/Slider";
 const App = () => {
     const newsImg = [newsImg1, newsImg2, newsImg3];
     let [newsBtnActive,setNewsBtnActive] = useState(true);
@@ -66,7 +66,7 @@ const App = () => {
             </div> 
         </div>
         <div className="w-screen  h-[49.4vw]">
-            <Slider/>
+            <FadeSlider/>
             <div className=" absolute animate-bounce-2s z-10 top-[45vw] left-[49vw]">
                     <img className="w-[1.4vw]" src={mouse} alt=""/>
                 </div>

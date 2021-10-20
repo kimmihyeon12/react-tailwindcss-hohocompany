@@ -58,7 +58,7 @@ export default class SliderCenterBig extends Component {
 
 const cssstyle = `
  .slick-prev{
-    background-image: url('${prev}');
+    background-image: url('${next}');
     background-size:5.8vw;
     width:6vw;
     height:6vw;

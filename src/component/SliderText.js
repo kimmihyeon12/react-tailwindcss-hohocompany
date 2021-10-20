@@ -4,7 +4,7 @@ import googlestoredown from "../assets/img/main-section1/googleplay.png"
 import { useRecoilState } from "recoil";
 import bannerCountState from "../atom/bannerCount";
  
-function SliderText(){
+function SliderText({count}){
     const [bannerCount, setBannerCount] = useRecoilState(bannerCountState);     
  
     const  Text1 = <div className="absolute w-[50vw] top-[17.2vw]  left-[10.9vw]  leading-[3.6vw]">
@@ -33,7 +33,7 @@ function SliderText(){
 
     return(
     <div className="">
-        {bannerText[bannerCount]}
+        {bannerText[count]}
     </div>)
 }
 export default SliderText;

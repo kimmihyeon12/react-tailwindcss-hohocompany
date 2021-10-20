@@ -17,10 +17,18 @@ module.exports = {
                 'fade-in': {
                     '0%': {
                         opacity: '0',
-                      
                     },
                     '100%': {
                         opacity: '1',
+                        
+                    },
+                },
+                'fade-out': {
+                    '0%': {
+                        opacity: '1',
+                    },
+                    '100%': {
+                        opacity: '0',
                         
                     },
                 }
@@ -46,7 +54,8 @@ module.exports = {
                 'bounce-2s': 'bounce 2s linear infinite',
                 'bounce-3s': 'bounce 3s linear infinite',
                 'bounce-4s': 'bounce 4s linear infinite',
-                'fade-in': 'fade-in 1s ease-out'
+                'fade-in': 'fade-in 1s ease-out',
+                'fade-out': 'fade-out 1s ease-out'
                },
               
            
