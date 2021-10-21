@@ -3,8 +3,40 @@ import filebtn from "../assets/img/popup/filebtn.png"
 import cancel from "../assets/img/popup/cancel.png"
 import { useRecoilState } from "recoil";
 import recruitmentView from "../atom/recruitmentView";
+import { useState } from "react";
+import emailjs from 'emailjs-com';
 function Recruitment(){
     const [recruitmentPageView,setRecruitmentPageView] = useRecoilState(recruitmentView);      
+    const [companyName , setCompanyName] = useState("");
+    const [userName , setUserName] = useState("");
+    const [userPhone , setUserPhone] = useState("");
+    const [userEmail , setUserEmail] = useState("");
+    const [title, setTitle] = useState("");
+    const [context, setContext] = useState("");
+    function companyNameChangeEv(e){
+        const value = e.target.value;
+        setCompanyName(value);
+    }
+    function userNameChangeEv(e){
+        const value = e.target.value;
+        setUserName(value);
+    }
+    function userPhoneChangeEv(e){
+        const value = e.target.value;
+        setUserPhone(value);
+    }
+    function userEmailChangeEv(e){
+        const value = e.target.value;
+        setUserEmail(value);
+    }
+    function titleChangeEv(e){
+        const value = e.target.value;
+        setTitle(value);
+    }
+    function contextChangeEv(e){
+        const value = e.target.value;
+        setContext(value);
+    }
     return(
         <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
         <div className="mt-[2vw] overflow-y-hidden  w-[60vw] h-[90vh] bg-[white]  pl-[5.6vw] pr-[5.6vw] pb-[5.6vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
@@ -19,18 +51,18 @@ function Recruitment(){
             <div className="mt-[2vw]">
                 <h1 className="text-[1.5vw] font-neob">담당자 정보</h1>
                 <ul>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">회사명<p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">성함 / 직책<p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">휴대전화<p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">이메일주소<p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">회사명<p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input value={companyName} onChange={companyNameChangeEv} className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">성함 / 직책<p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input value={userName} onChange={userNameChangeEv} className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">휴대전화<p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input value={userPhone} onChange={userPhoneChangeEv} className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">이메일주소<p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input value={userEmail} onChange={userEmailChangeEv} className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
                     
                 </ul>
             </div>
             <div className="mt-[2vw]">
                 <h1 className="text-[1.5vw] font-neob">제안내용</h1>
                 <ul>
-                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">제목<p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
-                    <li> <textarea  className="mt-[1.5vw] mb-[1vw] text-[1.2vw] border-[1px]  focus:outline-none w-[100%] rounded-lg p-[1vw] placeholder-[#434343] font-neom" cols="50" rows="10" placeholder="내용을 입력해주세요"></textarea></li>      
+                    <li className="relative flex items-center"> <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">제목<p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p></p><input value={title} onChange={titleChangeEv} className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]" type="text" id="" name=""/></li>
+                    <li> <textarea  value={context} onChange={contextChangeEv} className="mt-[1.5vw] mb-[1vw] text-[1.2vw] border-[1px]  focus:outline-none w-[100%] rounded-lg p-[1vw] placeholder-[#434343] font-neom" cols="50" rows="10" placeholder="내용을 입력해주세요"></textarea></li>      
                 </ul>
             </div>
             <div className="mb-[3.5vw]">
@@ -50,12 +82,25 @@ function Recruitment(){
             </div>
             <div className="mt-[4vw] text-[1.2vw] font-neom flex flex-col items-center">
                 <div className="flex items-center">
-                    <input className="mr-[0.58vw] transform scale-[1.2]" type="checkbox" id="cb1"/>
+                    <input className="mr-[0.58vw] transform scale-[1.2] " type="checkbox" id="cb1"/>
                     <p><span className="font-neob">개인정보처리방침</span>에 동의합니다.</p>
                 </div>
                 <div className="flex mt-[4vw]">
                     <div className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7]">취소</div>
-                    <div className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]">확인</div>
+                    <div onClick={()=>{
+                         emailjs.send('service_hfmauf3', 'template_5s72u89', {
+                            companyname:companyName,
+                            name:userName,
+                            phone:userPhone,
+                            email:userEmail,
+                            title: title,
+                            context:context,
+
+                        }, 'user_KXvfNoNAVUWCT1DrMl2Mb',
+                        ) 
+                         .then((result) => { console.log(result.text); }, (error) => { console.log(error.text); });
+
+                    }}className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]">확인</div>
                 </div>
             </div>
         </div>

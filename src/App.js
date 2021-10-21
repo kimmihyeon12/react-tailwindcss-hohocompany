@@ -62,7 +62,7 @@ const App = () => {
         {communicationPageView?<Communication/>:null}
         <div className="absolute z-10 flex justify-center w-screen ">
             <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
-            <img className="w-[10vw] animate-fade-in" src={logo} alt=""/>
+            <img className="w-[10vw]" src={logo} alt=""/>
             </div> 
         </div>
         <div className="w-screen  h-[49.4vw]">
