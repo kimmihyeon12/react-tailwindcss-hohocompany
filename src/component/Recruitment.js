@@ -52,7 +52,6 @@ function Recruitment() {
   }
 
   const emailFormSubmit = async () => {
-    console.log(emailForm)
     if (
       emailForm.companyName === '' ||
       emailForm.userName === '' ||
@@ -64,27 +63,28 @@ function Recruitment() {
       alert('필수항목들을 입력해주세요')
       return
     }
-    if (emailForm.checkbox) {
-      const formData = new FormData()
-      formData.append('companyName', emailForm.companyName)
-      formData.append('userName', emailForm.userName)
-      formData.append('userPhone', emailForm.userPhone)
-      formData.append('userEmail', emailForm.userEmail)
-      formData.append('title', emailForm.title)
-      formData.append('context', emailForm.context)
-      formData.append('selectedFile', emailForm.selectedFile)
-      formData.append('type', type)
-      console.debug(emailForm)
-      const data = await axios({
-        method: 'post',
-        url: `${process.env.REACT_APP_SERVER_URL}/mails`,
-        data: formData,
-        withCredentials: true,
-      })
-      console.debug(data)
-    } else {
+    if (!emailForm.checkbox) {
       alert('개인정보처리방침에 동의해주세요!')
+      return
     }
+
+    const formData = new FormData()
+    formData.append('companyName', emailForm.companyName)
+    formData.append('userName', emailForm.userName)
+    formData.append('userPhone', emailForm.userPhone)
+    formData.append('userEmail', emailForm.userEmail)
+    formData.append('title', emailForm.title)
+    formData.append('context', emailForm.context)
+    formData.append('selectedFile', emailForm.selectedFile)
+    formData.append('type', type)
+    console.debug(emailForm)
+    const data = await axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_SERVER_URL}/mails`,
+      data: formData,
+      withCredentials: true,
+    })
+    // console.debug(data)
   }
 
   return (
