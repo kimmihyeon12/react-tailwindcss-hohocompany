@@ -185,8 +185,22 @@ function Communication() {
               </p>
             </li>
             <li className="flex justify-center">
-              <img className="w-[11.6vw]" src={filebtn} alt="" />
+              <label
+                className="border-[1px] border-[#f93873]  flex justify-center items-center w-[11.6vw] h-[2.6vw] text-[1.15vw] font-neob rounded-lg text-[#f93873]"
+                htmlFor="input-file"
+              >
+                파일첨부
+              </label>
+              <input
+                id="input-file"
+                className="hidden"
+                type="file"
+                onChange={handleFileChange}
+              />
             </li>
+            <p className="font-neom">
+              {emailForm.selectedFile === '' ? '' : emailForm.selectedFile.name}
+            </p>
           </ul>
         </div>
         <div className="border font-neom text-[0.9vw] rounded-lg p-[0.9vw]">
@@ -215,10 +229,18 @@ function Communication() {
             </p>
           </div>
           <div className="flex mt-[4vw]">
-            <div className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7]">
+            <div
+              onClick={() => {
+                setcommunicationPageView(!communicationPageView)
+              }}
+              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7]"
+            >
               취소
             </div>
-            <div className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]">
+            <div
+              onClick={emailFormSubmit}
+              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]"
+            >
               확인
             </div>
           </div>

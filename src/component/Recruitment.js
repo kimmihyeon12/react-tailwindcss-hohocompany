@@ -52,7 +52,18 @@ function Recruitment() {
   }
 
   const emailFormSubmit = async () => {
-    console.log(emailForm.checkbox)
+    console.log(emailForm)
+    if (
+      emailForm.companyName === '' ||
+      emailForm.userName === '' ||
+      emailForm.userPhone === '' ||
+      emailForm.userEmail === '' ||
+      emailForm.title === '' ||
+      emailForm.context === ''
+    ) {
+      alert('필수항목들을 입력해주세요')
+      return
+    }
     if (emailForm.checkbox) {
       const formData = new FormData()
       formData.append('companyName', emailForm.companyName)
@@ -214,10 +225,8 @@ function Recruitment() {
                 onChange={handleFileChange}
               />
             </li>
-            <p className="font-neom text-[1vw]">
-              {
-                //selectedFile.name
-              }
+            <p className="font-neom">
+              {emailForm.selectedFile === '' ? '' : emailForm.selectedFile.name}
             </p>
           </ul>
         </div>
