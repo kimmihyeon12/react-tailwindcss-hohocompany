@@ -1,11 +1,17 @@
-import { useRecoilState } from "recoil";
-import testState from "./atom/bannerCount";
+import { useRecoilState } from 'recoil'
+import testState from './atom/bannerCount'
 
-function Test(){
-    const [test, setTest] =useRecoilState(testState);
+function Test() {
+  const [test, setTest] = useRecoilState(testState)
 
-    return (
-        <button onClick={()=>{setTest(test+1)}}>클릭</button>
-    );
+  return (
+    <button
+      onClick={() => {
+        setTest(test + 1)
+      }}
+    >
+      클릭
+    </button>
+  )
 }
-export default Test 
+export default Test
