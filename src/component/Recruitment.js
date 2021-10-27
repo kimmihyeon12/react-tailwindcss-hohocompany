@@ -1,11 +1,12 @@
 import hand from '../assets/img/popup/hand.png'
-import filebtn from '../assets/img/popup/filebtn.png'
 import cancel from '../assets/img/popup/cancel.png'
 import { useRecoilState } from 'recoil'
 import recruitmentView from '../atom/recruitmentView'
 import { useRef, useState } from 'react'
+import check from '../assets/img/popup/check.png'
 import axios from 'axios'
 function Recruitment() {
+  const checkboxLabel = useRef()
   const type = 'recruitment'
   const [recruitmentPageView, setRecruitmentPageView] = useRecoilState(
     recruitmentView,
@@ -39,6 +40,11 @@ function Recruitment() {
       setEmailForm({ ...emailForm, context: value })
     } else if (name === 'checkbox') {
       setEmailForm({ ...emailForm, checkbox: !emailForm.checkbox })
+      if (!emailForm.checkbox) {
+        checkboxLabel.current.style.backgroundColor = '#f93873'
+      } else {
+        checkboxLabel.current.style.backgroundColor = 'white'
+      }
     }
   }
 
@@ -225,7 +231,7 @@ function Recruitment() {
                 onChange={handleFileChange}
               />
             </li>
-            <p className="font-neom">
+            <p className="font-neom text-[1.0vw]">
               {emailForm.selectedFile === '' ? '' : emailForm.selectedFile.name}
             </p>
           </ul>
@@ -245,14 +251,26 @@ function Recruitment() {
           </p>
         </div>
         <div className="mt-[4vw] text-[1.2vw] font-neom flex flex-col items-center">
-          <div className="flex items-center">
+          <div className="relative flex items-center">
+            <label
+              className="w-[1.4vw] h-[1.4vw] border mr-[0.5vw] rounded-sm bg-[white] cursor-pointer "
+              htmlFor="cb1"
+              ref={checkboxLabel}
+            >
+              <img
+                className="absolute top-[0.2vw] w-[1.4vw] "
+                src={check}
+                alt="img"
+              />
+            </label>
+
             <input
-              className="mr-[0.58vw] transform scale-[1.2] "
+              className="hidden"
               type="checkbox"
               name="checkbox"
               id="cb1"
-              defaultChecked={emailForm.checkbox}
               onChange={emailFormChange}
+              defaultChecked={emailForm.checkbox}
             />
             <p>
               <span className="font-neob">개인정보처리방침</span>에 동의합니다.

@@ -1,16 +1,17 @@
-import hand from '../assets/img/popup/hand.png'
-import filebtn from '../assets/img/popup/filebtn.png'
 import cancel from '../assets/img/popup/cancel.png'
+import check from '../assets/img/popup/check.png'
 import { useRecoilState } from 'recoil'
 import communicationView from '../atom/communicationView'
 import { useRef, useState } from 'react'
 import axios from 'axios'
 
 function Communication() {
+  const checkboxLabel = useRef()
+  const type = 'communication'
   const [communicationPageView, setcommunicationPageView] = useRecoilState(
     communicationView,
   )
-  const type = 'communication'
+
   const [emailForm, setEmailForm] = useState({
     userName: '',
     userPhone: '',
@@ -36,6 +37,11 @@ function Communication() {
       setEmailForm({ ...emailForm, context: value })
     } else if (name === 'checkbox') {
       setEmailForm({ ...emailForm, checkbox: !emailForm.checkbox })
+      if (!emailForm.checkbox) {
+        checkboxLabel.current.style.backgroundColor = '#f93873'
+      } else {
+        checkboxLabel.current.style.backgroundColor = 'white'
+      }
     }
   }
   const handleFileChange = (event) => {
@@ -229,12 +235,28 @@ function Communication() {
           </p>
         </div>
         <div className="mt-[4vw] text-[1.2vw] font-neom flex flex-col items-center">
-          <div className="flex items-center">
+          <div className="relative flex items-center">
+            <label
+              className="w-[1.4vw] h-[1.4vw] border mr-[0.5vw] rounded-sm bg-[white] cursor-pointer "
+              htmlFor="cb1"
+              ref={checkboxLabel}
+            >
+              <img
+                className="absolute top-[0.2vw] w-[1.4vw] "
+                src={check}
+                alt="img"
+              />
+            </label>
+
             <input
-              className="mr-[0.58vw] transform scale-[1.2]"
+              className="hidden checked:bg-black text-[black]"
               type="checkbox"
+              name="checkbox"
               id="cb1"
+              onChange={emailFormChange}
+              defaultChecked={emailForm.checkbox}
             />
+
             <p>
               <span className="font-neob">개인정보처리방침</span>에 동의합니다.
             </p>
