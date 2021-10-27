@@ -634,6 +634,12 @@ video {
 .top-\[0vw\] {
 	top: 0vw;
 }
+.top-\[20vw\] {
+	top: 20vw;
+}
+.top-\[10vw\] {
+	top: 10vw;
+}
 .z-10 {
 	z-index: 10;
 }
@@ -930,6 +936,21 @@ video {
 }
 .h-\[2\.4vw\] {
 	height: 2.4vw;
+}
+.h-\[1vw\] {
+	height: 1vw;
+}
+.h-\[50vw\] {
+	height: 50vw;
+}
+.h-\[31vw\] {
+	height: 31vw;
+}
+.h-\[28vw\] {
+	height: 28vw;
+}
+.h-\[29vw\] {
+	height: 29vw;
 }
 .w-screen {
 	width: 100vw;

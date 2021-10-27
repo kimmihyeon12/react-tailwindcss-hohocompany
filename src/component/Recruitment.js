@@ -116,7 +116,6 @@ function Recruitment() {
           <p className="mt-[1vw] font-neom text-[#434343] text-[1vw]">
             내용에 대한 답변은 입력하신 이메일 주소로 회신하여 드립니다.
           </p>
-          <a href="mailto:hohoco0701@gmail.com">버튼 클릭ㅎ보세요!</a>
         </div>
         <div className="mt-[2vw]">
           <h1 className="text-[1.5vw] font-neob">담당자 정보</h1>

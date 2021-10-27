@@ -11,7 +11,6 @@ function Communication() {
   const [communicationPageView, setcommunicationPageView] = useRecoilState(
     communicationView,
   )
-
   const [emailForm, setEmailForm] = useState({
     userName: '',
     userPhone: '',
@@ -249,7 +248,7 @@ function Communication() {
             </label>
 
             <input
-              className="hidden checked:bg-black text-[black]"
+              className="hidden"
               type="checkbox"
               name="checkbox"
               id="cb1"

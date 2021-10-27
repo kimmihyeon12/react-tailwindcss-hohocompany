@@ -16,8 +16,6 @@ import newsBtn from './assets/img/main-section8/news_button.png'
 import newsBtnHv from './assets/img/main-section8/news_button_hover.png'
 import infoImg1 from './assets/img/main-section8/company-info1.png'
 import infoImg2 from './assets/img/main-section8/company-info2.png'
-import infoBtn1 from './assets/img/main-section8/company-info-button1.png'
-import infoBtn2 from './assets/img/main-section8/company-info-button2.png'
 import appDown from './assets/img/main-section8/app_download.png'
 import apple from './assets/img/main-section8/app_store.png'
 import google from './assets/img/main-section8/googleplay.png'
@@ -27,9 +25,9 @@ import blog from './assets/img/footer/blog.png'
 import twitter from './assets/img/footer/twitter.png'
 import youtube from './assets/img/footer/youtube.png'
 import flogo from './assets/img/footer/logo.png'
-import filebtn from './assets/img/footer/filebtn.png'
 import mouse from './assets/img/main-section1/mouse.png'
 import kakaouahage from './assets/img/footer/kakao.png'
+import movieIcon from './assets/img/main-section7/movieicon.png'
 //
 import SliderCenterBig from './component/sliderCenterBig'
 import Scrollview from './component/Scrollview'
@@ -144,26 +142,33 @@ const App = () => {
       <div className="w-screen h-[49vw] flex justify-center bg-white z-10">
         <Scrollview page={4} />
       </div>
-      <div className="flex flex-col w-[100vw] h-[49vw]  items-center justify-center">
-        <img
-          className="w-[51.4vw] transition duration-1000 transform hover:scale-110"
-          src={movieImg}
-          alt=""
-        />
-        <ul className="flex">
-          <li className="text-[2.6vw] font-neor leading-[2.9vw] mr-[4vw]">
-            우아하게는
-            <br />
-            <span className="font-neob">우리아이와 함께하다</span>
-            <br />
-            라는 뜻이에요
-          </li>
-          <li className="text-[1.4vw] font-neosb leading-[1.9vw]">
-            고객에게는 마음 편한 외식장소를 제공하고
-            <br /> 제휴 상점에는 매장 홍보 서비스를 제공하여
-            <br /> 지속적인 고객 유치를 지원하게 됩니다
-          </li>
-        </ul>
+      <div>
+        <div className="absolute w-[100vw] h-[49vw] bg-white "></div>
+        <div className="flex flex-col w-[100vw] h-[49vw]  items-center justify-center">
+          <div className="relative w-[100vw] h-[31vw]  flex justify-center">
+            <img
+              className="absolute w-[51.4vw]  transition duration-1000 transform hover:scale-110"
+              src={movieImg}
+              alt=""
+            />
+            <img className="absolute top-[10vw]" src={movieIcon} alt="" />
+          </div>
+
+          <ul className="z-10 flex">
+            <li className="text-[2.6vw] font-neor leading-[2.9vw] mr-[4vw] ">
+              우아하게는
+              <br />
+              <span className="font-neob">우리아이와 함께하다</span>
+              <br />
+              라는 뜻이에요
+            </li>
+            <li className="text-[1.4vw] font-neosb leading-[1.9vw]">
+              고객에게는 마음 편한 외식장소를 제공하고
+              <br /> 제휴 상점에는 매장 홍보 서비스를 제공하여
+              <br /> 지속적인 고객 유치를 지원하게 됩니다
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="relative h-[35vw] ">
@@ -224,7 +229,6 @@ const App = () => {
           <img className="absolute w-[82vw]" src={appDown} alt="" />
           <div className="ml-[28vw] absolute text-[white] mt-[11.2vw]">
             <p className="text-[1.66vw] items-center font-neob">
-              {' '}
               우리 아이와 어디 갈지 고민이라면
               <br />
               <span className="font-neoeb text-[1.97vw]">
@@ -243,8 +247,11 @@ const App = () => {
       <div className="flex w-[100vw] justify-center">
         <div className="w-[80vw] flex justify-end mb-[3.5vw]">
           <a href="https://pf.kakao.com/_Uexnws/chat">
-            {' '}
-            <img className="w-[14vw] hover:cursor-pointer" src={kakaouahage} />
+            <img
+              className="w-[14vw] hover:cursor-pointer"
+              src={kakaouahage}
+              alt="img"
+            />
           </a>
         </div>
       </div>
@@ -252,29 +259,24 @@ const App = () => {
       <div className="w-[100vw] h-[15vw] flex justify-center bg-[#2b2b2b]">
         <div className="w-[80vw]">
           <div className="flex items-center mt-[1.6vw] mb-[1vw] ">
-            <img className="w-[10vw] mr-[3.6vw]" src={flogo} />
+            <img className="w-[10vw] mr-[3.6vw]" src={flogo} alt="img" />
             <p className="text-[white] text-[1vw] font-neol">
               서비스 이용약관 | 개인정보 보호정책 | 위치기반서비스 이용약관
             </p>
             <ul className="flex items-center ml-[26.9vw]">
               <li className="ml-[1.5vw]">
-                {' '}
                 <img className="w-[0.7vw]" src={facebook} alt="" />
               </li>
               <li className="ml-[1.5vw]">
-                {' '}
                 <img className="w-[1.6vw]" src={twitter} alt="" />
               </li>
               <li className="ml-[1.5vw]">
-                {' '}
                 <img className="w-[1.8vw]" src={instagram} alt="" />
               </li>
               <li className="ml-[1.5vw]">
-                {' '}
                 <img className="w-[1vw]" src={blog} alt="" />
               </li>
               <li className="ml-[1.5vw]">
-                {' '}
                 <img className="w-[1.9vw]" src={youtube} alt="" />
               </li>
             </ul>
