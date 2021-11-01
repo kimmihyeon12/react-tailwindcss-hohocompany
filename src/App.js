@@ -41,6 +41,7 @@ import { useRecoilValue } from 'recoil'
 import recruitmentView from './atom/recruitmentView'
 import communicationView from './atom/communicationView'
 import FadeSlider from '../src/component/Slider'
+
 const App = () => {
   const newsImg = [newsImg1, newsImg2, newsImg3]
   let [newsBtnActive, setNewsBtnActive] = useState(true)
@@ -66,6 +67,7 @@ const App = () => {
     <div className="App">
       {recruitmentPageView ? <Recruitment /> : null}
       {communicationPageView ? <Communication /> : null}
+
       <div className="absolute z-10 flex justify-center w-screen ">
         <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
           <img className="w-[10vw]" src={logo} alt="" />
@@ -151,7 +153,11 @@ const App = () => {
               src={movieImg}
               alt=""
             />
-            <img className="absolute top-[10vw]" src={movieIcon} alt="" />
+            <img
+              className="absolute top-[12vw] w-[5vw]"
+              src={movieIcon}
+              alt=""
+            />
           </div>
 
           <ul className="z-10 flex">

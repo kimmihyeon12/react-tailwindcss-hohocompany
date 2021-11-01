@@ -2,15 +2,18 @@ import hand from '../assets/img/popup/hand.png'
 import cancel from '../assets/img/popup/cancel.png'
 import { useRecoilState } from 'recoil'
 import recruitmentView from '../atom/recruitmentView'
+import loadingView from '../atom/recruitmentView'
 import { useRef, useState } from 'react'
 import check from '../assets/img/popup/check.png'
 import axios from 'axios'
+import Loading from '../component/Loading'
 function Recruitment() {
   const checkboxLabel = useRef()
   const type = 'recruitment'
   const [recruitmentPageView, setRecruitmentPageView] = useRecoilState(
     recruitmentView,
   )
+  const [LoadingPageView, setLoadingPageView] = useState(false)
 
   const [emailForm, setEmailForm] = useState({
     companyName: '',
@@ -73,7 +76,6 @@ function Recruitment() {
       alert('개인정보처리방침에 동의해주세요!')
       return
     }
-
     const formData = new FormData()
     formData.append('companyName', emailForm.companyName)
     formData.append('userName', emailForm.userName)
@@ -84,17 +86,26 @@ function Recruitment() {
     formData.append('selectedFile', emailForm.selectedFile)
     formData.append('type', type)
     console.debug(emailForm)
-    const data = await axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_SERVER_URL}/mails`,
-      data: formData,
-      withCredentials: true,
-    })
-    // console.debug(data)
+    setLoadingPageView(!LoadingPageView)
+    try {
+      const data = await axios({
+        method: 'post',
+        url: `${process.env.REACT_APP_SERVER_URL}/mails`,
+        data: formData,
+        withCredentials: true,
+      })
+      setLoadingPageView(!LoadingPageView)
+    } catch (e) {
+      console.log('실패!!')
+      alert('정보전송에 실패했어요')
+      setLoadingPageView(!LoadingPageView)
+    }
+    setRecruitmentPageView(!recruitmentPageView)
   }
 
   return (
     <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
+      {LoadingPageView ? <Loading /> : null}
       <div className="mt-[2vw]   w-[60vw] h-[90vh] bg-[white]  pl-[5.6vw] pr-[5.6vw] pb-[5.6vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
         <img
           className="ml-[100%] h-[4vw]"
@@ -280,13 +291,13 @@ function Recruitment() {
               onClick={() => {
                 setRecruitmentPageView(!recruitmentPageView)
               }}
-              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7]"
+              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7] cursor-pointer"
             >
               취소
             </div>
             <div
               onClick={emailFormSubmit}
-              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]"
+              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873] cursor-pointer"
             >
               확인
             </div>

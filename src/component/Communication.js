@@ -11,6 +11,7 @@ function Communication() {
   const [communicationPageView, setcommunicationPageView] = useRecoilState(
     communicationView,
   )
+  const [LoadingPageView, setLoadingPageView] = useState(false)
   const [emailForm, setEmailForm] = useState({
     userName: '',
     userPhone: '',
@@ -76,13 +77,21 @@ function Communication() {
     formData.append('context', emailForm.context)
     formData.append('selectedFile', emailForm.selectedFile)
     formData.append('type', type)
-    console.debug(emailForm)
-    const data = await axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_SERVER_URL}/mails`,
-      data: formData,
-    })
-    //   console.debug(data)
+    setLoadingPageView(!LoadingPageView)
+    try {
+      const data = await axios({
+        method: 'post',
+        url: `${process.env.REACT_APP_SERVER_URL}/mails`,
+        data: formData,
+        withCredentials: true,
+      })
+      setLoadingPageView(!LoadingPageView)
+    } catch (e) {
+      console.log('실패!!')
+      alert('정보전송에 실패했어요')
+      setLoadingPageView(!LoadingPageView)
+    }
+    setcommunicationPageView(!communicationPageView)
   }
 
   return (

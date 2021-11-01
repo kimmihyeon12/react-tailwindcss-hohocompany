@@ -559,6 +559,9 @@ video {
 .left-\[49vw\] {
 	left: 49vw;
 }
+.top-\[12vw\] {
+	top: 12vw;
+}
 .top-\[18\.2vw\] {
 	top: 18.2vw;
 }
@@ -576,6 +579,9 @@ video {
 }
 .left-\[5\.1vw\] {
 	left: 5.1vw;
+}
+.top-\[0\.2vw\] {
+	top: 0.2vw;
 }
 .right-\[-14\.5vw\] {
 	right: -14.5vw;
@@ -619,27 +625,6 @@ video {
 .top-\[16\.6vw\] {
 	top: 16.6vw;
 }
-.top-\[0\.5vw\] {
-	top: 0.5vw;
-}
-.top-\[0\.1vw\] {
-	top: 0.1vw;
-}
-.right-\[0\.1vw\] {
-	right: 0.1vw;
-}
-.top-\[0\.2vw\] {
-	top: 0.2vw;
-}
-.top-\[0vw\] {
-	top: 0vw;
-}
-.top-\[20vw\] {
-	top: 20vw;
-}
-.top-\[10vw\] {
-	top: 10vw;
-}
 .z-10 {
 	z-index: 10;
 }
@@ -649,8 +634,8 @@ video {
 .z-\[-1\] {
 	z-index: -1;
 }
-.z-20 {
-	z-index: 20;
+.z-\[1000\] {
+	z-index: 1000;
 }
 .mt-\[2\.8vw\] {
 	margin-top: 2.8vw;
@@ -790,9 +775,6 @@ video {
 .ml-\[1\.45vw\] {
 	margin-left: 1.45vw;
 }
-.mr-\[0\.58vw\] {
-	margin-right: 0.58vw;
-}
 .mt-\[1\.7vw\] {
 	margin-top: 1.7vw;
 }
@@ -865,6 +847,9 @@ video {
 .h-\[46\.5vw\] {
 	height: 46.5vw;
 }
+.h-\[31vw\] {
+	height: 31vw;
+}
 .h-\[35vw\] {
 	height: 35vw;
 }
@@ -910,6 +895,9 @@ video {
 .h-\[10\.4vw\] {
 	height: 10.4vw;
 }
+.h-\[10vw\] {
+	height: 10vw;
+}
 .h-\[22\.1vw\] {
 	height: 22.1vw;
 }
@@ -934,23 +922,8 @@ video {
 .h-\[5vw\] {
 	height: 5vw;
 }
-.h-\[2\.4vw\] {
-	height: 2.4vw;
-}
-.h-\[1vw\] {
-	height: 1vw;
-}
-.h-\[50vw\] {
-	height: 50vw;
-}
-.h-\[31vw\] {
-	height: 31vw;
-}
-.h-\[28vw\] {
-	height: 28vw;
-}
-.h-\[29vw\] {
-	height: 29vw;
+.h-\[100vh\] {
+	height: 100vh;
 }
 .w-screen {
 	width: 100vw;
@@ -987,6 +960,9 @@ video {
 }
 .w-\[51\.4vw\] {
 	width: 51.4vw;
+}
+.w-\[5vw\] {
+	width: 5vw;
 }
 .w-\[82vw\] {
 	width: 82vw;
@@ -1066,12 +1042,6 @@ video {
 .w-\[11\.8vw\] {
 	width: 11.8vw;
 }
-.w-\[2\.4vw\] {
-	width: 2.4vw;
-}
-.w-\[1\.5vw\] {
-	width: 1.5vw;
-}
 .transform {
 	--tw-translate-x: 0;
 	--tw-translate-y: 0;
@@ -1081,10 +1051,6 @@ video {
 	--tw-scale-x: 1;
 	--tw-scale-y: 1;
 	transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.scale-\[1\.2\] {
-	--tw-scale-x: 1.2;
-	--tw-scale-y: 1.2;
 }
 @keyframes bounce {
 
@@ -1209,12 +1175,12 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(251, 107, 121, var(--tw-bg-opacity));
 }
-.bg-\[rgba\(0\2c 0\2c 0\2c 0\.2\)\] {
-	background-color: rgba(0,0,0,0.2);
-}
 .bg-black {
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+}
+.bg-\[rgba\(0\2c 0\2c 0\2c 0\.2\)\] {
+	background-color: rgba(0,0,0,0.2);
 }
 .p-\[5\.6vw\] {
 	padding: 5.6vw;
@@ -1361,10 +1327,6 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(249, 56, 115, var(--tw-text-opacity));
 }
-.text-\[black\] {
-	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
 .text-\[\#7d7d7d\] {
 	--tw-text-opacity: 1;
 	color: rgba(125, 125, 125, var(--tw-text-opacity));
@@ -1448,11 +1410,6 @@ video {
 
 body{
     overflow-x: hidden;
-} 
-
-.checked\:bg-black:checked {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 } 
 
 .hover\:scale-110:hover {
