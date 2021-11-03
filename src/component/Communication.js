@@ -96,7 +96,7 @@ function Communication() {
 
   return (
     <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
-      <div className="mt-[2vw] h-[90vh]   w-[60vw] pl-[5.6vw] pr-[5.6vw] pb-[5.6vw] pt-[2vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
+      <div className="mt-[2vw] h-[90vh]   w-[60vw] pl-[5.6vw] pr-[4vw] pb-[1vw] pt-[2vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
         <img
           className="ml-[100%]  h-[4vw]"
           src={cancel}
@@ -125,7 +125,7 @@ function Communication() {
           <h1 className="text-[1.5vw] font-neob">정보</h1>
           <ul>
             <li className="relative flex items-center">
-              <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">
+              <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
                 성함
                 <p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
               </p>
@@ -139,7 +139,7 @@ function Communication() {
               />
             </li>
             <li className="relative flex items-center">
-              <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">
+              <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
                 휴대전화
                 <p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
               </p>
@@ -153,7 +153,7 @@ function Communication() {
               />
             </li>
             <li className="relative flex items-center">
-              <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">
+              <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
                 이메일주소
                 <p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
               </p>
@@ -175,7 +175,7 @@ function Communication() {
           <h1 className="text-[1.5vw] font-neob">내용</h1>
           <ul>
             <li className="relative flex items-center">
-              <p className="pb-[0.5vw]  pt-[1vw] w-[8.5vw] border-b font-neob text-[1.2vw]">
+              <p className="pb-[0.5vw]  pt-[1vw] w-[4vw] border-b font-neob text-[1.2vw]">
                 제목
                 <p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
               </p>
@@ -205,7 +205,7 @@ function Communication() {
           <ul>
             <li>
               <p className="font-neom text-[1vw] mb-[1.5vw]">
-                첨부파일은 최대 100MB까지 등록 가능합니다. 파일형식은 pptx, pdf,
+                첨부파일은 최대 10MB까지 등록 가능합니다. 파일형식은 pptx, pdf,
                 xlsx, docx, hwp, jpg, png만 가능합니다.
               </p>
             </li>
@@ -286,6 +286,14 @@ function Communication() {
             </div>
           </div>
         </div>
+        <img
+          className="ml-[100%] h-[4vw] mt-[5vw]"
+          src={cancel}
+          alt=""
+          onClick={() => {
+            setcommunicationPageView(!communicationPageView)
+          }}
+        />
       </div>
     </div>
   )

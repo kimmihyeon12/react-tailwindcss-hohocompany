@@ -3,10 +3,10 @@ import appstoredown from '../assets/img/main-section1/appstore.png'
 import googlestoredown from '../assets/img/main-section1/googleplay.png'
 import { useRecoilState } from 'recoil'
 import bannerCountState from '../atom/bannerCount'
-
+import popupView from '../atom/popupView'
 function SliderText({ count }) {
   const [bannerCount, setBannerCount] = useRecoilState(bannerCountState)
-
+  //const [popupPageView, setcommunicationPageView] = useRecoilState(popupView)
   const Text1 = (
     <div className="absolute w-[50vw] top-[17.2vw]  left-[10.9vw]  leading-[3.6vw]">
       <img className="absolute w-[11.8vw] top-[5vw]" src={highLight} alt="" />
@@ -54,7 +54,13 @@ function SliderText({ count }) {
       </p>
       <div className="flex">
         <img className="w-[11.8vw] mr-[1vw]" src={appstoredown} alt="" />
-        <img className="w-[11.8vw]" src={googlestoredown} alt="" />
+        <a
+          href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="w-[11.8vw]" src={googlestoredown} alt="" />
+        </a>
       </div>
     </div>
   )

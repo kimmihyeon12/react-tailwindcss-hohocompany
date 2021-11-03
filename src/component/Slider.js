@@ -20,6 +20,7 @@ export default class FadeSlider extends Component {
     let btnState = false
 
     let time = setInterval(() => {
+      console.log('gggggg')
       barwidth += 3.2
       if (barwidth >= document.querySelector('.backbar').clientWidth - 6) {
         this.slider.slickGoTo(sliderCount + 1)

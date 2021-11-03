@@ -37,16 +37,19 @@ import CompanyBox from './component/CompanyBox'
 import Recruitment from './component/Recruitment'
 import Communication from './component/Communication'
 import { useState } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useRecoilState } from 'recoil'
 import recruitmentView from './atom/recruitmentView'
 import communicationView from './atom/communicationView'
+import popupView from './atom/popupView'
 import FadeSlider from '../src/component/Slider'
+import Popup from '../src/component/Popup'
 
 const App = () => {
   const newsImg = [newsImg1, newsImg2, newsImg3]
   let [newsBtnActive, setNewsBtnActive] = useState(true)
   const recruitmentPageView = useRecoilValue(recruitmentView)
   const communicationPageView = useRecoilValue(communicationView)
+  const [popupPageView, setcommunicationPageView] = useRecoilState(popupView)
 
   const infoImg = [
     {
@@ -65,8 +68,9 @@ const App = () => {
 
   return (
     <div className="App">
-      {recruitmentPageView ? <Recruitment /> : null}
-      {communicationPageView ? <Communication /> : null}
+      {recruitmentPageView && <Recruitment />}
+      {communicationPageView && <Communication />}
+      {popupPageView !== 0 && <Popup />}
 
       <div className="absolute z-10 flex justify-center w-screen ">
         <div className="flex w-[80vw] items-center justify-between  mt-[2.8vw]">
@@ -185,7 +189,15 @@ const App = () => {
           <p className="text-[1.4vw] font-neosb">@uahage_official</p>
         </div>
 
-        <div className=" h-[14vw]">
+        <div
+          className=" h-[14vw]"
+          onClick={() => {
+            setcommunicationPageView(1)
+            setTimeout(() => {
+              setcommunicationPageView(0)
+            }, 1000)
+          }}
+        >
           <AutoSlider />
         </div>
       </div>
@@ -209,7 +221,7 @@ const App = () => {
         >
           {newsBtnActive ? (
             <img
-              className="w-[16.15vw] h-[3.65vw]  transform"
+              className="w-[16.15vw] h-[3.65vw]  transform "
               src={newsBtn}
               alt=""
             />
@@ -218,6 +230,12 @@ const App = () => {
               className="w-[16.15vw] h-[3.65vw] duration-1000 transform"
               src={newsBtnHv}
               alt=""
+              onClick={() => {
+                setcommunicationPageView(2)
+                setTimeout(() => {
+                  setcommunicationPageView(0)
+                }, 1000)
+              }}
             />
           )}
         </div>
@@ -243,8 +261,22 @@ const App = () => {
             </p>
           </div>
           <div className="flex absolute top-[18.2vw]">
-            <img className="w-[12.4vw] ml-[26vw]" src={apple} alt="" />
-            <a href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage">
+            <img
+              className="w-[12.4vw] ml-[26vw]"
+              src={apple}
+              alt=""
+              onClick={() => {
+                setcommunicationPageView(3)
+                setTimeout(() => {
+                  setcommunicationPageView(0)
+                }, 1000)
+              }}
+            />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img className="w-[12.4vw] ml-[2vw]" src={google} alt="" />
             </a>
           </div>
@@ -252,7 +284,11 @@ const App = () => {
       </div>
       <div className="flex w-[100vw] justify-center">
         <div className="w-[80vw] flex justify-end mb-[3.5vw]">
-          <a href="https://pf.kakao.com/_Uexnws/chat">
+          <a
+            href="https://pf.kakao.com/_Uexnws/chat"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="w-[14vw] hover:cursor-pointer"
               src={kakaouahage}
@@ -269,7 +305,15 @@ const App = () => {
             <p className="text-[white] text-[1vw] font-neol">
               서비스 이용약관 | 개인정보 보호정책 | 위치기반서비스 이용약관
             </p>
-            <ul className="flex items-center ml-[26.9vw]">
+            <ul
+              className="flex items-center ml-[26.9vw] "
+              onClick={() => {
+                setcommunicationPageView(4)
+                setTimeout(() => {
+                  setcommunicationPageView(0)
+                }, 1000)
+              }}
+            >
               <li className="ml-[1.5vw]">
                 <img className="w-[0.7vw]" src={facebook} alt="" />
               </li>

@@ -47,7 +47,7 @@ function UpAnimation({ page }) {
         <ul className="mt-[18vw] duration-[1.0s]" ref={text}>
           <li className="flex text-[1.4vw] items-center font-neob mb-[0.5vw]">
             <img className="w-[1.8vw] mr-[0.9vw]" src={check} alt="" /> 엄마
-            아빠가 편하게 나갈 수는 없을까요 ?
+            아빠가 편하게 나갈 수는 없을까요?
           </li>
           <li className="font-neob text-[2.6vw] mb-[0.5vw] ml-[2.6vw] leading-[2.9vw] ">
             유아를 동반한 부모가 외식할 때 <br />

@@ -33,9 +33,10 @@ export default class AutoSlider extends Component {
       autoplaySpeed: 2000,
       cssEase: 'linear',
     }
+
     return (
       <>
-        <div className="">
+        <div className="" ref="autoslider">
           <style>{}</style>
           <Slider {...settings}>
             {slider.map((slider) => {
