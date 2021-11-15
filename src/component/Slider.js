@@ -13,14 +13,17 @@ import SliderText from './SliderText'
 import Slider from 'react-slick'
 
 export default class FadeSlider extends Component {
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
   render() {
+    console.log('render')
     const banner = [banner1, banner2, banner3, banner4]
     let barwidth = 10
     let sliderCount = 0
     let btnState = false
 
     let time = setInterval(() => {
-      console.log('gggggg')
       barwidth += 3.2
       if (barwidth >= document.querySelector('.backbar').clientWidth - 6) {
         this.slider.slickGoTo(sliderCount + 1)

@@ -634,6 +634,12 @@ video {
 .z-\[-1\] {
 	z-index: -1;
 }
+.z-50 {
+	z-index: 50;
+}
+.z-\[10000\] {
+	z-index: 10000;
+}
 .mt-\[2\.8vw\] {
 	margin-top: 2.8vw;
 }
@@ -760,6 +766,9 @@ video {
 .ml-\[0\.8vw\] {
 	margin-left: 0.8vw;
 }
+.mt-\[5vw\] {
+	margin-top: 5vw;
+}
 .ml-\[2\.3vw\] {
 	margin-left: 2.3vw;
 }
@@ -819,9 +828,6 @@ video {
 }
 .mr-\[1vw\] {
 	margin-right: 1vw;
-}
-.mt-\[5vw\] {
-	margin-top: 5vw;
 }
 .flex {
 	display: flex;
@@ -994,14 +1000,17 @@ video {
 .w-\[60vw\] {
 	width: 60vw;
 }
-.w-\[8\.5vw\] {
-	width: 8.5vw;
+.w-\[7\.5vw\] {
+	width: 7.5vw;
 }
 .w-\[6px\] {
 	width: 6px;
 }
 .w-\[100\%\] {
 	width: 100%;
+}
+.w-\[4vw\] {
+	width: 4vw;
 }
 .w-\[11\.6vw\] {
 	width: 11.6vw;
@@ -1042,18 +1051,6 @@ video {
 .w-\[11\.8vw\] {
 	width: 11.8vw;
 }
-.w-\[4\.5vw\] {
-	width: 4.5vw;
-}
-.w-\[5px\] {
-	width: 5px;
-}
-.w-\[7\.5vw\] {
-	width: 7.5vw;
-}
-.w-\[4vw\] {
-	width: 4vw;
-}
 .transform {
 	--tw-translate-x: 0;
 	--tw-translate-y: 0;
@@ -1084,31 +1081,6 @@ video {
 }
 .animate-bounce-4s {
 	animation: bounce 4s linear infinite;
-}
-.animate-bounce {
-	animation: bounce 1s infinite;
-}
-.animate-bounce-1s {
-	animation: bounce 1s linear infinite;
-}
-@keyframes ping {
-
-	75%, 100% {
-		transform: scale(2);
-		opacity: 0;
-	}
-}
-.animate-ping {
-	animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-@keyframes pulse {
-
-	50% {
-		opacity: .5;
-	}
-}
-.animate-pulse {
-	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .cursor-pointer {
 	cursor: pointer;
@@ -1215,10 +1187,6 @@ video {
 .bg-\[rgba\(0\2c 0\2c 0\2c 0\.2\)\] {
 	background-color: rgba(0,0,0,0.2);
 }
-.bg-black {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-}
 .p-\[5\.6vw\] {
 	padding: 5.6vw;
 }
@@ -1231,11 +1199,11 @@ video {
 .pl-\[5\.6vw\] {
 	padding-left: 5.6vw;
 }
-.pr-\[5\.6vw\] {
-	padding-right: 5.6vw;
+.pr-\[4vw\] {
+	padding-right: 4vw;
 }
-.pb-\[5\.6vw\] {
-	padding-bottom: 5.6vw;
+.pb-\[1vw\] {
+	padding-bottom: 1vw;
 }
 .pt-\[2vw\] {
 	padding-top: 2vw;
@@ -1266,21 +1234,6 @@ video {
 }
 .pr-\[1\.9vw\] {
 	padding-right: 1.9vw;
-}
-.pr-\[1vw\] {
-	padding-right: 1vw;
-}
-.pb-\[1vw\] {
-	padding-bottom: 1vw;
-}
-.pr-\[4\.6vw\] {
-	padding-right: 4.6vw;
-}
-.pr-\[3\.6vw\] {
-	padding-right: 3.6vw;
-}
-.pr-\[4vw\] {
-	padding-right: 4vw;
 }
 .text-center {
 	text-align: center;
