@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil'
 import communicationView from '../atom/communicationView'
 import { useRef, useState } from 'react'
 import axios from 'axios'
-
+import Loading from '../component/Loading'
 function Communication() {
   const checkboxLabel = useRef()
   const type = 'communication'
@@ -18,7 +18,7 @@ function Communication() {
     userEmail: '',
     title: '',
     context: '',
-    selectedFile: '',
+    selectedFiles: [],
     checkbox: false,
   })
 
@@ -49,11 +49,22 @@ function Communication() {
       event.target.value = ''
       return false
     }
-    const file = event.target.files[0]
-    setEmailForm({ ...emailForm, selectedFile: file })
+    let files = []
+    for (let i = 0; i < event.target.files.length; i++) {
+      files.push(event.target.files[i])
+    }
+    if (files.length + emailForm.selectedFiles.length > 5) {
+      alert('5장까지만 가능합니다')
+      return
+    }
+    setEmailForm({
+      ...emailForm,
+      selectedFiles: emailForm.selectedFiles.concat(files),
+    })
   }
 
   const emailFormSubmit = async () => {
+    console.log('emailFormSubmit')
     if (
       emailForm.userName === '' ||
       emailForm.userPhone === '' ||
@@ -75,7 +86,9 @@ function Communication() {
     formData.append('userEmail', emailForm.userEmail)
     formData.append('title', emailForm.title)
     formData.append('context', emailForm.context)
-    formData.append('selectedFile', emailForm.selectedFile)
+    emailForm.selectedFiles.forEach((file) => {
+      formData.append('selectedFiles', file)
+    })
     formData.append('type', type)
     setLoadingPageView(!LoadingPageView)
     try {
@@ -83,7 +96,7 @@ function Communication() {
         method: 'post',
         url: `${process.env.REACT_APP_SERVER_URL}/mails`,
         data: formData,
-        withCredentials: true,
+        // withCredentials: true,
       })
       setLoadingPageView(!LoadingPageView)
     } catch (e) {
@@ -94,8 +107,22 @@ function Communication() {
     setcommunicationPageView(!communicationPageView)
   }
 
+  const selectedfileName = () => {
+    const result = []
+    for (let i = 0; i < emailForm.selectedFiles.length; i++) {
+      result.push(
+        <p key={i}>
+          {i + 1}. {emailForm.selectedFiles[i].name}
+        </p>,
+      )
+    }
+
+    return result
+  }
+
   return (
     <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
+      {LoadingPageView ? <Loading /> : null}
       <div className="mt-[2vw] h-[90vh]   w-[60vw] pl-[5.6vw] pr-[4vw] pb-[1vw] pt-[2vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
         <img
           className="ml-[100%]  h-[4vw]"
@@ -219,13 +246,12 @@ function Communication() {
               <input
                 id="input-file"
                 className="hidden"
+                multiple="multiple"
                 type="file"
                 onChange={handleFileChange}
               />
             </li>
-            <p className="font-neom">
-              {emailForm.selectedFile === '' ? '' : emailForm.selectedFile.name}
-            </p>
+            <div className="font-neom text-[1.0vw]">{selectedfileName()}</div>
           </ul>
         </div>
         <div className="border font-neom text-[0.9vw] rounded-lg p-[0.9vw]">
@@ -280,7 +306,7 @@ function Communication() {
             </div>
             <div
               onClick={emailFormSubmit}
-              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873]"
+              className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873] cursor-pointer"
             >
               확인
             </div>

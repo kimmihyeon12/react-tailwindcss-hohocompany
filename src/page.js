@@ -48,7 +48,6 @@ function Page() {
   const recruitmentPageView = useRecoilValue(recruitmentView)
   const communicationPageView = useRecoilValue(communicationView)
   const [popupPageView, setcommunicationPageView] = useRecoilState(popupView)
-  const [barWidth, setbarWidth] = useRecoilState(barwidth)
 
   const infoImg = [
     {
@@ -183,7 +182,7 @@ function Page() {
             setcommunicationPageView(1)
             setTimeout(() => {
               setcommunicationPageView(0)
-            }, 1000)
+            }, 2000)
           }}
         >
           <AutoSlider />
@@ -222,7 +221,7 @@ function Page() {
                 setcommunicationPageView(2)
                 setTimeout(() => {
                   setcommunicationPageView(0)
-                }, 1000)
+                }, 2000)
               }}
             />
           )}
@@ -257,7 +256,7 @@ function Page() {
                 setcommunicationPageView(3)
                 setTimeout(() => {
                   setcommunicationPageView(0)
-                }, 1000)
+                }, 2000)
               }}
             />
             <a
@@ -299,7 +298,7 @@ function Page() {
                 setcommunicationPageView(4)
                 setTimeout(() => {
                   setcommunicationPageView(0)
-                }, 1000)
+                }, 2000)
               }}
             >
               <li className="ml-[1.5vw]">
