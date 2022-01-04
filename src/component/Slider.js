@@ -40,7 +40,7 @@ export default class FadeSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 4000,
+      autoplaySpeed: 6000,
       pauseOnHover: false,
       beforeChange: (current, next) => {
         sliderCount = next
@@ -56,8 +56,9 @@ export default class FadeSlider extends Component {
         clearInterval(time)
         barwidth = 10
         time = setInterval(() => {
-          barwidth += 3.3
-          if (barwidth >= document.querySelector('.backbar').clientWidth - 6) {
+          barwidth += 3.4
+          console.log(document.querySelector('.backbar').clientWidth)
+          if (barwidth  >= document.querySelector('.backbar').clientWidth - 6 ) {
             this.slider.slickGoTo(sliderCount + 1)
           }
           let barEl = document.querySelector('.bar')

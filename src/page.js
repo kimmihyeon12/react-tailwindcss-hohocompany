@@ -1,71 +1,70 @@
-import backgroud from './assets/img/main-section3/background.png'
-import phone3 from './assets/img/main-section3/phone.png'
-import text1 from './assets/img/main-section3/text1.png'
-import text2 from './assets/img/main-section3/text2.png'
-import text3 from './assets/img/main-section3/text3.png'
-import text4 from './assets/img/main-section3/text4.png'
-import logo from './assets/img/header/logo.png'
-import iconGroup from './assets/img/main-section4/icongroup.png'
-import movieImg from './assets/img/main-section7/card.png'
-import newsImg1 from './assets/img/main-section8/news1.png'
-import newsImg2 from './assets/img/main-section8/news2.png'
-import newsImg3 from './assets/img/main-section8/news3.png'
-import newsBtn from './assets/img/main-section8/news_button.png'
-import newsBtnHv from './assets/img/main-section8/news_button_hover.png'
-import infoImg1 from './assets/img/main-section8/company-info1.png'
-import infoImg2 from './assets/img/main-section8/company-info2.png'
-import appDown from './assets/img/main-section8/app_download.png'
-import apple from './assets/img/main-section8/app_store.png'
-import google from './assets/img/main-section8/googleplay.png'
-import facebook from './assets/img/footer/facebook.png'
-import instagram from './assets/img/footer/instagram.png'
-import blog from './assets/img/footer/blog.png'
-import twitter from './assets/img/footer/twitter.png'
-import youtube from './assets/img/footer/youtube.png'
-import flogo from './assets/img/footer/logo.png'
-import mouse from './assets/img/main-section1/mouse.png'
-import kakaouahage from './assets/img/footer/kakao.png'
-import movieIcon from './assets/img/main-section7/movieicon.png'
-//
-import SliderCenterBig from './component/sliderCenterBig'
-import Scrollview from './component/Scrollview'
-import AutoSlider from './component/AutoSlider'
-import NewsBox from './component/NewsBox'
-import CompanyBox from './component/CompanyBox'
-import Recruitment from './component/Recruitment'
-import Communication from './component/Communication'
-import { useState } from 'react'
-import { useRecoilValue, useRecoilState } from 'recoil'
-import recruitmentView from './atom/recruitmentView'
-import communicationView from './atom/communicationView'
-import popupView from './atom/popupView'
-import barwidth from './atom/barwidth'
-import Popup from '../src/component/Popup'
+import backgroud from "./assets/img/main-section3/background.png";
+import phone3 from "./assets/img/main-section3/phone.png";
+import text1 from "./assets/img/main-section3/text1.png";
+import text2 from "./assets/img/main-section3/text2.png";
+import text3 from "./assets/img/main-section3/text3.png";
+import text4 from "./assets/img/main-section3/text4.png";
+import logo from "./assets/img/header/logo.png";
+import iconGroup from "./assets/img/main-section4/icongroup.png";
+import movieImg from "./assets/img/main-section7/card.png";
+import newsImg1 from "./assets/img/main-section8/news1.png";
+import newsImg2 from "./assets/img/main-section8/news2.png";
+import newsImg3 from "./assets/img/main-section8/news3.png";
+import newsBtn from "./assets/img/main-section8/news_button.png";
+import newsBtnHv from "./assets/img/main-section8/news_button_hover.png";
+import infoImg1 from "./assets/img/main-section8/company-info1.png";
+import infoImg2 from "./assets/img/main-section8/company-info2.png";
+import appDown from "./assets/img/main-section8/app_download.png";
+import apple from "./assets/img/main-section8/app_store.png";
+import google from "./assets/img/main-section8/googleplay.png";
+import facebook from "./assets/img/footer/facebook.png";
+import instagram from "./assets/img/footer/instagram.png";
+import blog from "./assets/img/footer/blog.png";
+import twitter from "./assets/img/footer/twitter.png";
+import youtube from "./assets/img/footer/youtube.png";
+import flogo from "./assets/img/footer/logo.png";
+import mouse from "./assets/img/main-section1/mouse.png";
+import kakaouahage from "./assets/img/footer/kakao.png";
+import movieIcon from "./assets/img/main-section7/movieicon.png";
+
+import SliderCenterBig from "./component/sliderCenterBig";
+import Scrollview from "./component/Scrollview";
+import AutoSlider from "./component/AutoSlider";
+import NewsBox from "./component/NewsBox";
+import CompanyBox from "./component/CompanyBox";
+import Recruitment from "./component/Recruitment";
+import Communication from "./component/Communication";
+import { useState } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
+import recruitmentView from "./atom/recruitmentView";
+import communicationView from "./atom/communicationView";
+import popupView from "./atom/popupView";
+import Popup from "../src/component/Popup";
 
 function Page() {
-  const newsImg = [newsImg1, newsImg2, newsImg3]
-  let [newsBtnActive, setNewsBtnActive] = useState(true)
-  const recruitmentPageView = useRecoilValue(recruitmentView)
-  const communicationPageView = useRecoilValue(communicationView)
-  const [popupPageView, setcommunicationPageView] = useRecoilState(popupView)
+  const newsImg = [newsImg1, newsImg2, newsImg3];
+  let [newsBtnActive, setNewsBtnActive] = useState(true);
+  const recruitmentPageView = useRecoilValue(recruitmentView);
+  const communicationPageView = useRecoilValue(communicationView);
+  const [popupPageView, setcommunicationPageView] = useRecoilState(popupView);
 
   const infoImg = [
     {
       background: infoImg1,
-      text: '함께 성장하기',
-      title: 'Partnership Proposal',
-      content: '함께 성장할 비즈니스 제휴와  파트너쉽을 기다립니다',
+      text: "함께 성장하기",
+      title: "Partnership Proposal",
+      content: "함께 성장할 비즈니스 제휴와  파트너쉽을 기다립니다",
     },
     {
       background: infoImg2,
-      text: '소통하기',
-      title: 'Opinion and Support',
-      content: '여러분의 의견을 자유롭게 알려주세요 응원의 메시지도 좋습니다',
+      text: "소통하기",
+      title: "Opinion and Support",
+      content: "여러분의 의견을 자유롭게 알려주세요 응원의 메시지도 좋습니다",
     },
-  ]
+  ];
 
   return (
-    <>
+    <div>
       {recruitmentPageView && <Recruitment />}
       {communicationPageView && <Communication />}
       {popupPageView !== 0 && <Popup />}
@@ -83,7 +82,8 @@ function Page() {
             <br />
             우리아이와 마음 편하게 외출할 수 있는 서비스가 필요해!
             <br />
-            '아이와 가족을 배려하는 공간을 파악하는 다리를 만들자'라고 떠올렸죠!
+            .0.0 '아이와 가족을 배려하는 공간을 파악하는 다리를 만들자'라고
+            떠올렸죠!
             <br />
             그래서 우아하게가 탄생했습니다.
           </p>
@@ -179,10 +179,10 @@ function Page() {
         <div
           className=" h-[14vw]"
           onClick={() => {
-            setcommunicationPageView(1)
+            setcommunicationPageView(1);
             setTimeout(() => {
-              setcommunicationPageView(0)
-            }, 2000)
+              setcommunicationPageView(0);
+            }, 2000);
           }}
         >
           <AutoSlider />
@@ -196,13 +196,13 @@ function Page() {
         </p>
         <ul className="ml-[6vw] flex mt-[5.5vw]">
           {newsImg.map((img, index) => {
-            return <NewsBox key={index} img={img} />
+            return <NewsBox key={index} img={img} />;
           })}
         </ul>
         <div
           className="mt-[3.1vw] w-[82vw] flex duration-1000 justify-center cursor-pointer"
           onMouseOver={() => {
-            setNewsBtnActive(false)
+            setNewsBtnActive(false);
           }}
           onMouseOut={() => setNewsBtnActive(true)}
         >
@@ -218,10 +218,10 @@ function Page() {
               src={newsBtnHv}
               alt=""
               onClick={() => {
-                setcommunicationPageView(2)
+                setcommunicationPageView(2);
                 setTimeout(() => {
-                  setcommunicationPageView(0)
-                }, 2000)
+                  setcommunicationPageView(0);
+                }, 2000);
               }}
             />
           )}
@@ -231,7 +231,7 @@ function Page() {
       <div className="h-[20vw] mt-[10vw]  ml-[5vw] ">
         <ul className="  flex text-[white] justify-center">
           {infoImg.map((img, index) => {
-            return <CompanyBox key={index} img={img} index={index} />
+            return <CompanyBox key={index} img={img} index={index} />;
           })}
         </ul>
       </div>
@@ -253,10 +253,10 @@ function Page() {
               src={apple}
               alt=""
               onClick={() => {
-                setcommunicationPageView(3)
+                setcommunicationPageView(3);
                 setTimeout(() => {
-                  setcommunicationPageView(0)
-                }, 2000)
+                  setcommunicationPageView(0);
+                }, 2000);
               }}
             />
             <a
@@ -295,10 +295,10 @@ function Page() {
             <ul
               className="flex items-center ml-[26.9vw] "
               onClick={() => {
-                setcommunicationPageView(4)
+                setcommunicationPageView(4);
                 setTimeout(() => {
-                  setcommunicationPageView(0)
-                }, 2000)
+                  setcommunicationPageView(0);
+                }, 2000);
               }}
             >
               <li className="ml-[1.5vw]">
@@ -331,7 +331,7 @@ function Page() {
           </div>
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }
-export default Page
+export default Page;

@@ -5,6 +5,6 @@ function AutoSliderChild({ index, img }) {
         <img className="h-[14vw]" src={img} alt="img" />
       </div>
     </>
-  )
+  );
 }
-export default AutoSliderChild
+export default AutoSliderChild;

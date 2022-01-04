@@ -5,11 +5,11 @@ function SliderCenterBigChild({ index, img }) {
         <img
           className="w-[13.6vw] drop-shadow"
           src={img}
-          style={{ filter: 'drop-shadow(0px 0px 0.6vw #c7c7c7)' }}
+          style={{ filter: "drop-shadow(0px 0px 0.6vw #c7c7c7)" }}
           alt="img"
         />
       </div>
     </>
-  )
+  );
 }
-export default SliderCenterBigChild
+export default SliderCenterBigChild;

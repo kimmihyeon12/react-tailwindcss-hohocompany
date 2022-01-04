@@ -1,45 +1,44 @@
-import phone from '../assets/img/main-section2/phone.png'
-import check from '../assets/img/main-section2/check.png'
-import tag from '../assets/img/main-section6/tag.png'
-import phoneimg from '../assets/img/main-section6/phone.png'
-import { useEffect, useRef, useState } from 'react'
+import phone from "../assets/img/main-section2/phone.png";
+import check from "../assets/img/main-section2/check.png";
+import phoneimg from "../assets/img/main-section6/phone.png";
+import { useEffect, useRef, useState } from "react";
 
 function UpAnimation({ page }) {
-  const text = useRef()
-  const img = useRef()
-  const text1 = useRef()
-  const img1 = useRef()
-  let scrollbarSize = (document.documentElement.scrollHeight - 736) / 13
+  const text = useRef();
+  const img = useRef();
+  const text1 = useRef();
+  const img1 = useRef();
+  let scrollbarSize = (document.documentElement.scrollHeight - 736) / 13;
   if (page === 4) {
-    scrollbarSize = (document.documentElement.scrollHeight - 736) / 2.2
+    scrollbarSize = (document.documentElement.scrollHeight - 736) / 2.2;
   }
 
-  const [scrollY, setScrollY] = useState(0)
+  const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
-    window.addEventListener('scroll', (e) => {
-      setScrollY(window.pageYOffset)
+    window.addEventListener("scroll", (e) => {
+      setScrollY(window.pageYOffset);
       if (page === 2) {
         if (scrollY < scrollbarSize) {
-          text.current.style.transform = 'translate(0, 180%)'
-          img.current.style.transform = 'translate(0, 30%)'
+          text.current.style.transform = "translate(0, 180%)";
+          img.current.style.transform = "translate(0, 30%)";
         }
         if (scrollY > scrollbarSize) {
-          text.current.style.transform = 'translate(0, 0)'
-          img.current.style.transform = 'translate(0, 0)'
+          text.current.style.transform = "translate(0, 0)";
+          img.current.style.transform = "translate(0, 0)";
         }
       }
       if (page === 4) {
         if (scrollY < scrollbarSize) {
-          text1.current.style.transform = 'translate(0, 180%)'
-          img1.current.style.transform = 'translate(0, 30%)'
+          text1.current.style.transform = "translate(0, 180%)";
+          img1.current.style.transform = "translate(0, 30%)";
         }
         if (scrollY > scrollbarSize) {
-          text1.current.style.transform = 'translate(0, 0)'
-          img1.current.style.transform = 'translate(0, 0)'
+          text1.current.style.transform = "translate(0, 0)";
+          img1.current.style.transform = "translate(0, 0)";
         }
       }
-    })
-  })
+    });
+  });
 
   if (page === 2) {
     return (
@@ -65,7 +64,7 @@ function UpAnimation({ page }) {
           alt=""
         />
       </div>
-    )
+    );
   }
   if (page === 4) {
     return (
@@ -125,7 +124,7 @@ function UpAnimation({ page }) {
           alt=""
         />
       </div>
-    )
+    );
   }
 }
-export default UpAnimation
+export default UpAnimation;
