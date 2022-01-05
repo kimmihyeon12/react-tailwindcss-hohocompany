@@ -19,6 +19,7 @@ import movie from "../assets/img/mobile/movie.png";
 import icons from "../assets/img/mobile/icons.png";
 import backgroundbaby from "../assets/img/mobile/backgroundbaby.png";
 import googlebtn from "../assets/img/mobile/googlebtn.png";
+import applebtn from "../assets/img/mobile/applebtn.png";
 import company1 from "../assets/img/mobile/company1.png";
 import company2 from "../assets/img/mobile/company2.png";
 import { useEffect, useRef, useState } from "react";
@@ -26,70 +27,101 @@ import Slider from "../component/mobile/Slider";
 
 import smoothscroll from "smoothscroll-polyfill";
 function MobilePage() {
-  console.log(document.body.offsetHeight);
   const page = useRef();
-
+  const page1 = useRef();
+  const page2 = useRef();
+  const page3 = useRef();
+  const page4 = useRef();
+  const page5 = useRef();
+  const page6 = useRef();
+  const page7 = useRef();
+  const page8 = useRef();
+  const page9 = useRef();
+  const page10 = useRef();
+  smoothscroll.polyfill();
   let count = 0;
   let prevState = 0;
   let touch = true;
-  let vh = window.innerHeight * 0.01;
-
-  window.addEventListener("resize", () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  });
 
   document.addEventListener("touchstart", (e) => {
-    console.log("touchstart");
-
     prevState = window.pageYOffset;
   });
 
   document.addEventListener("touchend", (e) => {
-    vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    if (touch) {
-      console.log("touchend");
-
-      let scrolly = window.pageYOffset - prevState;
+    let scrolly = window.pageYOffset - prevState;
+    // document.body.style.overflow = "hidden";
+    console.log(scrolly);
+    if ((touch && scrolly > 5) || (touch && scrolly < -5)) {
+      // document.body.style.overflow = "auto";
 
       if (scrolly > 0) {
         console.log("스크롤 아래로");
-        count++;
-        smoothscroll.polyfill();
-        window.scrollTo({
-          top: count * 100 * vh,
-          behavior: "smooth",
-        });
+        if (count <= 8) {
+          count++;
+        }
       } else {
         console.log("스크롤 위로");
-        count--;
+        if (count >= 0) {
+          count--;
+        }
+      }
+      var location;
+      if (count === 0) {
+        location = page1.current.offsetTop;
+      }
+      if (count === 1) {
+        location = page2.current.offsetTop;
+      }
+      if (count === 2) {
+        location = page3.current.offsetTop;
+      }
+      if (count === 3) {
+        location = page4.current.offsetTop;
+      }
+      if (count === 4) {
+        location = page5.current.offsetTop;
+      }
+      if (count === 5) {
+        location = page6.current.offsetTop;
+      }
+      if (count === 6) {
+        location = page7.current.offsetTop;
+      }
+      if (count === 7) {
+        location = page8.current.offsetTop;
+      }
+      if (count === 8) {
+        location = page9.current.offsetTop;
+      }
+      if (count === 9) {
+        location = page10.current.offsetTop;
       }
 
       window.scrollTo({
-        top: count * window.innerHeight,
+        top: location,
         behavior: "smooth",
       });
-      // touch = false;
-      // document.body.style.overflow = "hidden";
-      // setTimeout(() => {
-      //   touch = true;
-      //   document.body.style.overflow = "auto";
-      // }, 2000);
+      touch = false;
+      document.body.style.overflow = "hidden";
+
+      setTimeout(() => {
+        touch = true;
+        document.body.style.overflow = "auto";
+      }, 500);
     }
   });
 
   return (
     <div className="w-full" ref={page}>
-      <style> </style>
-      <div className="w-full h-screen bg-yellow-50">
+      <style></style>
+
+      <div className="w-full h-screen bg-yellow-50" ref={page1}>
         <Slider />
       </div>
 
       <div
-        className="relative w-full h-screen  flex flex-col items-center  border  "
-        id="page2"
+        className="relative w-full h-screen  flex flex-col items-center  border   "
+        ref={page2}
       >
         <div className=" duration-500">
           <h1 className="pt-[30vw] text-[8vw] leading-[9.4vw] font-neoeb text-center tracking-[-1.5px]">
@@ -99,7 +131,7 @@ function MobilePage() {
             각종 편의시설이 부족해요
           </h1>
           <img
-            className="absolute w-[28vw] z-[-1] top-[48vw] left-[15vw]  "
+            className="absolute w-[28vw] z-[-1] top-[48vw] left-[26vw]  "
             src={highlight}
             alt=""
           />
@@ -108,14 +140,14 @@ function MobilePage() {
           </p>
         </div>
 
-        <div className="relative flex justify-center duration-700">
+        <div className="relative flex justify-center duration-700 ">
           <div className="absolute w-[80vw] h-[37vh]   z-[-1] top-[11vh] rounded-2xl bg-[#f2f3f5]"></div>
           <img className=" h-[41vh] mt-[7vh]" src={phone} alt="" />
         </div>
       </div>
       <div
-        className="relative w-full h-screen flex justify-center  "
-        id="page3"
+        className="relative w-full h-screen flex justify-center   border "
+        ref={page3}
       >
         <img className="w-full" src={background} alt="" />
 
@@ -143,7 +175,10 @@ function MobilePage() {
           떠올렸죠!"
         </p>
       </div>
-      <div className="relative w-full h-screen bg-[#f2f2f2]  overflow-hidden  ">
+      <div
+        className="relative w-full h-screen bg-[#f2f2f2]  overflow-hidden  "
+        ref={page4}
+      >
         <img className="absolute w-full " src={backgroundb} alt="" />
         <img
           className="absolute top-[11vh] w-[37vh] right-[4vw] animate-bounce-2s"
@@ -159,7 +194,7 @@ function MobilePage() {
           <img className=" h-[57vh] ml-3 " src={phone1} alt="" />
         </div>
       </div>
-      <div className=" w-full h-screen flex flex-col items-center ">
+      <div className=" w-full h-screen flex flex-col items-center " ref={page5}>
         <p className=" pt-[12vh] text-center text-[4.8vw] leading-[6vw] tracking-[-0.9px] font-neosb">
           육아맘과 육아대디에게
         </p>
@@ -185,11 +220,14 @@ function MobilePage() {
             #아이식기
           </div>
         </div>
-        <div className=" w-screen h-[55vh] mt-[5.5vh] ">
+        <div className=" w-screen h-[55vh] mt-[5.5vh]  overflow-y-hidden ">
           <SliderCenterBig />
         </div>
       </div>
-      <div className="relative w-full h-screen flex flex-col items-center  ">
+      <div
+        className="relative w-full h-screen flex flex-col items-center  "
+        ref={page6}
+      >
         <p className="text-[8vw] leading-[9.4vw] tracking-[-1.5px] font-neoeb mt-[7vh]">
           우아하게는
         </p>
@@ -202,7 +240,7 @@ function MobilePage() {
           <img className="mt-[6vh]  h-[17vh] " src={icons} alt="" />
         </div>
       </div>
-      <div className="relative w-full h-screen pt-[48px]">
+      <div className="relative w-full h-screen pt-[48px]" ref={page7}>
         <p className="text-[4.4vw] leading-[6vw] tracking-[-0.9px] font-neob text-center">
           고객에게는 마음 편한 장소를 제공하고 <br />
           제휴 상점에는 매장 홍보 서비스를 제공하여 <br />
@@ -232,7 +270,7 @@ function MobilePage() {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-screen  ">
+      <div className="relative w-full h-screen  " ref={page8}>
         <p className="text-center  text-[8vw] leading-[9.4vw] tracking-[-1.5px] font-neoeb pt-[16vh] pb-[7vh]">
           우아하게의
           <br /> 새로운 소식을 만나보세요
@@ -242,7 +280,7 @@ function MobilePage() {
           <img className="  w-[50vw]   " src={newsbutton} alt="" />
         </div>
       </div>
-      <div className="relative w-full h-screen  ">
+      <div className="relative w-full h-screen  " ref={page9}>
         <div className="absolute flex flex-col items-center w-full">
           <p className="text-center text-[4.4vw] leading-[6vw] tracking-[-0.9px] font-neosb mt-[7vh]">
             우리 아이와 어디 갈지 고민이라면
@@ -250,11 +288,50 @@ function MobilePage() {
           <p className="text-center  text-[8vw] leading-[9.4vw] tracking-[-1.5px] font-neoeb mt-[0.5vh] ">
             우아하게와 함께하세요!
           </p>
+          <div className="flex mt-[2vh]">
+            <img className="  h-[5.4vh] mr-1 z-1 " src={applebtn} alt="" />
+            <img className=" h-[5.4vh]    " src={googlebtn} alt="" />
+          </div>
+
+          <div className="relative  mt-[43vh]">
+            <img className="  w-[90vw]" src={company2} alt="" />
+            <div className="text-white absolute top-0 left-3">
+              <p className=" font-neob text-[4.8vw] mt-[2vh]">
+                Partnership Proposal
+              </p>
+              <p className="font-neosb text-[3.5vw] mt-[1.2vh]">
+                함께 성장할 비즈니스 제휴와
+                <br /> 파트너쉽을 기다립니다
+              </p>
+            </div>
+            <div className="absolute top-[5.5vh] right-3 bg-[#fb6b79] px-[4vw] pt-[2vw] pb-[1.5vw] rounded-full font-neosb text-[12px] mt-[14px] text-white">
+              함께 성장하기
+            </div>
+          </div>
+          <div className="relative  mt-[3vh]">
+            <img className="  w-[90vw]" src={company1} alt="" />
+            <div className="text-white absolute top-0 left-3">
+              <p className=" font-neob text-[4.8vw] mt-[2vh]">
+                Opinion and Support
+              </p>
+              <p className="font-neosb text-[3.5vw] mt-[1.2vh]">
+                여러분의 의견을 자유롭게 알려주세요
+                <br />
+                응원의 메시지도 좋습니다
+              </p>
+            </div>
+            <div className="absolute top-[5.5vh] right-3 bg-[#fb6b79] px-[4vw] pt-[2vw] pb-[1.5vw] rounded-full font-neosb text-[12px] mt-[14px] text-white">
+              소통하기
+            </div>
+          </div>
         </div>
 
         <img className="absolute top-0  w-full " src={backgroundbaby} alt="" />
       </div>
-      <div className="relative w-full h-screen border  border-black bg-black pl-[8vw]">
+      <div
+        className="relative w-full h-screen border  border-black bg-black pl-[8vw]"
+        ref={page10}
+      >
         <img className="  h-[4.5vh]  mt-[6vh] " src={logob} alt="" />
         <p className="  text-[3.2vw]  mt-[5vh]  text-white font-neol">
           서비스 이용약관 | 개인정보 보호정책 | 위치기반서비스 이용약관

@@ -25,11 +25,13 @@ export default class AutoSlider extends Component {
       slidesToScroll: 1,
 
       cssEase: "linear",
+      beforeChange: (current, next) => {},
+      afterChange: (current, next) => {},
     };
 
     return (
       <>
-        <div className=" h-[46vh] " ref="autoslider">
+        <div className=" h-[46vh]  " ref="autoslider">
           <style>{}</style>
           <Slider {...settings}>
             <div className="ml-[41.2vw]">
