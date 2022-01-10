@@ -16,7 +16,7 @@ export default function PreparPopup({ index, setIndex }) {
   } else {
     return (
       <Modal openState={true}>
-        <img className=" w-[70vw] " src={popup[indexCount]} alt="" />
+        <img className=" w-[30vw] " src={popup[indexCount]} alt="" />
       </Modal>
     );
   }

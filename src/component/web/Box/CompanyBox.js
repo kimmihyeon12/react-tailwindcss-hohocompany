@@ -1,20 +1,9 @@
-import { useRecoilState } from 'recoil'
-import recruitmentView from '../atom/recruitmentView'
-import communicationView from '../atom/communicationView'
-
-function CompanyBox({ img, index }) {
-  const [recruitmentPageView, setRecruitmentPageView] = useRecoilState(
-    recruitmentView,
-  )
-  const [communicationPageView, setcommunicationPageView] = useRecoilState(
-    communicationView,
-  )
+function CompanyBox({ img, index, setIndex }) {
   return (
     <li
       className="ml-[2.3vw] mr-[2.3vw] group "
       onClick={(e) => {
-        if (index === 0) setRecruitmentPageView(!recruitmentPageView)
-        if (index === 1) setcommunicationPageView(!communicationPageView)
+        setIndex(true);
       }}
     >
       <div className=" relative w-[34.8vw] h-[10.4vw] overflow-hidden bg-[rgba(1,1,1,0.3)] rounded-[2vw] cursor-pointer">
@@ -36,6 +25,6 @@ function CompanyBox({ img, index }) {
         </div>
       </div>
     </li>
-  )
+  );
 }
-export default CompanyBox
+export default CompanyBox;

@@ -1,4 +1,4 @@
-function SliderCenterBigChild({ index, img }) {
+function CenterImgSliderChild({ index, img }) {
   return (
     <>
       <div className="mt-[3.5vw] mb-[3.5vw]">
@@ -12,4 +12,4 @@ function SliderCenterBigChild({ index, img }) {
     </>
   );
 }
-export default SliderCenterBigChild;
+export default CenterImgSliderChild;

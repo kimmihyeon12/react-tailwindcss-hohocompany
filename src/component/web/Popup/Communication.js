@@ -1,182 +1,157 @@
-import hand from '../assets/img/popup/hand.png'
-import cancel from '../assets/img/popup/cancel.png'
-import { useRecoilState } from 'recoil'
-import recruitmentView from '../atom/recruitmentView'
-import loadingView from '../atom/recruitmentView'
-import { useEffect, useRef, useState } from 'react'
-import check from '../assets/img/popup/check.png'
-import axios from 'axios'
-import Loading from '../component/Loading'
-function Recruitment() {
-  const checkboxLabel = useRef()
-  const type = 'recruitment'
-  const [recruitmentPageView, setRecruitmentPageView] = useRecoilState(
-    recruitmentView,
-  )
-  const [LoadingPageView, setLoadingPageView] = useState(false)
-
+import cancel from "../../../assets/img/popup/cancel.png";
+import check from "../../../assets/img/popup/check.png";
+import { useRef, useState } from "react";
+import axios from "axios";
+import Loading from "../../../component/Loading";
+import Modal from "../../../component/Modal";
+function Communication({ index, setIndex }) {
+  const checkboxLabel = useRef();
+  const type = "communication";
+  const [LoadingPageView, setLoadingPageView] = useState(false);
   const [emailForm, setEmailForm] = useState({
-    companyName: '',
-    userName: '',
-    userPhone: '',
-    userEmail: '',
-    title: '',
-    context: '',
+    userName: "",
+    userPhone: "",
+    userEmail: "",
+    title: "",
+    context: "",
     selectedFiles: [],
     checkbox: false,
-  })
-  useEffect(() => {
-    console.log(emailForm.selectedFiles)
-  }, [emailForm.selectedFiles])
+  });
 
   const emailFormChange = (e) => {
-    const value = e.target.value
-    const name = e.target.name
-    if (name === 'companyName') {
-      setEmailForm({ ...emailForm, companyName: value })
-    } else if (name === 'userName') {
-      setEmailForm({ ...emailForm, userName: value })
-    } else if (name === 'userPhone') {
-      setEmailForm({ ...emailForm, userPhone: value })
-    } else if (name === 'userEmail') {
-      setEmailForm({ ...emailForm, userEmail: value })
-    } else if (name === 'title') {
-      setEmailForm({ ...emailForm, title: value })
-    } else if (name === 'context') {
-      setEmailForm({ ...emailForm, context: value })
-    } else if (name === 'checkbox') {
-      setEmailForm({ ...emailForm, checkbox: !emailForm.checkbox })
+    const value = e.target.value;
+    const name = e.target.name;
+    if (name === "userName") {
+      setEmailForm({ ...emailForm, userName: value });
+    } else if (name === "userPhone") {
+      setEmailForm({ ...emailForm, userPhone: value });
+    } else if (name === "userEmail") {
+      setEmailForm({ ...emailForm, userEmail: value });
+    } else if (name === "title") {
+      setEmailForm({ ...emailForm, title: value });
+    } else if (name === "context") {
+      setEmailForm({ ...emailForm, context: value });
+    } else if (name === "checkbox") {
+      setEmailForm({ ...emailForm, checkbox: !emailForm.checkbox });
       if (!emailForm.checkbox) {
-        checkboxLabel.current.style.backgroundColor = '#f93873'
+        checkboxLabel.current.style.backgroundColor = "#f93873";
       } else {
-        checkboxLabel.current.style.backgroundColor = 'white'
+        checkboxLabel.current.style.backgroundColor = "white";
       }
     }
-  }
-
+  };
   const handleFileChange = (event) => {
     if (event.target.files.length === 0) {
-      event.target.value = ''
-      return false
+      event.target.value = "";
+      return false;
     }
-    let files = []
+    let files = [];
     for (let i = 0; i < event.target.files.length; i++) {
-      files.push(event.target.files[i])
+      files.push(event.target.files[i]);
     }
     if (files.length + emailForm.selectedFiles.length > 5) {
-      alert('5장까지만 가능합니다')
-      return
+      alert("5장까지만 가능합니다");
+      return;
     }
     setEmailForm({
       ...emailForm,
       selectedFiles: emailForm.selectedFiles.concat(files),
-    })
-  }
+    });
+  };
 
   const emailFormSubmit = async () => {
+    console.log("emailFormSubmit");
     if (
-      emailForm.companyName === '' ||
-      emailForm.userName === '' ||
-      emailForm.userPhone === '' ||
-      emailForm.userEmail === '' ||
-      emailForm.title === '' ||
-      emailForm.context === ''
+      emailForm.userName === "" ||
+      emailForm.userPhone === "" ||
+      emailForm.userEmail === "" ||
+      emailForm.title === "" ||
+      emailForm.context === ""
     ) {
-      alert('필수항목들을 입력해주세요')
-      return
+      alert("필수항목들을 입력해주세요");
+      return;
     }
     if (!emailForm.checkbox) {
-      alert('개인정보처리방침에 동의해주세요!')
-      return
+      alert("개인정보처리방침에 동의해주세요!");
+      return;
     }
-    const formData = new FormData()
-    formData.append('companyName', emailForm.companyName)
-    formData.append('userName', emailForm.userName)
-    formData.append('userPhone', emailForm.userPhone)
-    formData.append('userEmail', emailForm.userEmail)
-    formData.append('title', emailForm.title)
-    formData.append('context', emailForm.context)
-    emailForm.selectedFiles.forEach((file) => {
-      formData.append('selectedFiles', file)
-    })
-    formData.append('type', type)
 
-    setLoadingPageView(!LoadingPageView)
+    const formData = new FormData();
+    formData.append("userName", emailForm.userName);
+    formData.append("userPhone", emailForm.userPhone);
+    formData.append("userEmail", emailForm.userEmail);
+    formData.append("title", emailForm.title);
+    formData.append("context", emailForm.context);
+    emailForm.selectedFiles.forEach((file) => {
+      formData.append("selectedFiles", file);
+    });
+    formData.append("type", type);
+    setLoadingPageView(!LoadingPageView);
     try {
       const data = await axios({
-        method: 'post',
+        method: "post",
         url: `${process.env.REACT_APP_SERVER_URL}/mails`,
         data: formData,
-        withCredentials: true,
-      })
-      setLoadingPageView(!LoadingPageView)
+        // withCredentials: true,
+      });
+      setLoadingPageView(!LoadingPageView);
     } catch (e) {
-      console.log('실패!!')
-      alert('정보전송에 실패했어요')
-      setLoadingPageView(!LoadingPageView)
+      console.log("실패!!");
+      alert("정보전송에 실패했어요");
+      setLoadingPageView(!LoadingPageView);
     }
-    setRecruitmentPageView(!recruitmentPageView)
-  }
+    setIndex(false);
+  };
+
   const selectedfileName = () => {
-    const result = []
+    const result = [];
     for (let i = 0; i < emailForm.selectedFiles.length; i++) {
       result.push(
         <p key={i}>
           {i + 1}. {emailForm.selectedFiles[i].name}
-        </p>,
-      )
+        </p>
+      );
     }
 
-    return result
-  }
+    return result;
+  };
 
   return (
-    <>
+    <Modal openState={index}>
       <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
         {LoadingPageView ? <Loading /> : null}
-        <div className="mt-[2vw]   w-[60vw] h-[90vh] bg-[white]  pl-[5.6vw] pr-[4vw] pb-[1vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
+        <div className="mt-[2vw] h-[90vh]   w-[60vw] pl-[5.6vw] pr-[4vw] pb-[1vw] pt-[2vw] bg-[white] p-[5.6vw] border-2 overflow-y-scroll custom-scroll">
           <img
-            className="ml-[100%] h-[4vw]"
+            className="ml-[100%]  h-[4vw]"
             src={cancel}
             alt=""
             onClick={() => {
-              setRecruitmentPageView(!recruitmentPageView)
+              setIndex(false);
             }}
           />
           <div className="">
             <div className="flex  leading-[2.8vw] items-end">
               <h1 className="text-[2.5vw] font-neob">
-                안녕하세요.
-                <br /> 우아하게와 무엇을
-                <br /> 함께 하시겠습니까?
+                우아하게는
+                <br />
+                고객의 경험을 통해 서비스를
+                <br />
+                만들고 발전해 나가고자 합니다
               </h1>
-              <img className=" h-[3vw]" src={hand} alt="" />
             </div>
             <p className="mt-[1vw] font-neom text-[#434343] text-[1vw]">
-              내용에 대한 답변은 입력하신 이메일 주소로 회신하여 드립니다.
+              언제든지 문의사항이나, 지원이 필요한 부분을 알려주세요.
+              <br />
+              가능하면 최대한 지원하겠습니다. 감사합니다.
             </p>
           </div>
           <div className="mt-[2vw]">
-            <h1 className="text-[1.5vw] font-neob">담당자 정보</h1>
+            <h1 className="text-[1.5vw] font-neob">정보</h1>
             <ul>
               <li className="relative flex items-center">
                 <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
-                  회사명
-                  <p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
-                </p>
-                <input
-                  value={emailForm.companyName}
-                  onChange={emailFormChange}
-                  className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
-                  type="text"
-                  id=""
-                  name="companyName"
-                />
-              </li>
-              <li className="relative flex items-center">
-                <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
-                  성함 / 직책
-                  <p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                  성함
+                  <p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                 </p>
                 <input
                   value={emailForm.userName}
@@ -215,10 +190,13 @@ function Recruitment() {
                   name="userEmail"
                 />
               </li>
+              <p className="mt-[1vw] font-neom text-[#434343] text-[1vw]">
+                내용에 대한 답변은 입력하신 이메일 주소로 회신하여 드립니다.
+              </p>
             </ul>
           </div>
           <div className="mt-[2vw]">
-            <h1 className="text-[1.5vw] font-neob">제안내용</h1>
+            <h1 className="text-[1.5vw] font-neob">내용</h1>
             <ul>
               <li className="relative flex items-center">
                 <p className="pb-[0.5vw]  pt-[1vw] w-[4vw] border-b font-neob text-[1.2vw]">
@@ -270,7 +248,6 @@ function Recruitment() {
                   onChange={handleFileChange}
                 />
               </li>
-
               <div className="font-neom text-[1.0vw]">{selectedfileName()}</div>
             </ul>
           </div>
@@ -280,7 +257,7 @@ function Recruitment() {
               우아하게는 제휴를 희망하는 기업 및 개인을 대상으로 아래와 같이
               개인정보를 수집하고 있습니다.
               <br />
-              1. 수집 개인정보 항목 _ [필수] 성함, 메일 주소, 휴대전화 번호{' '}
+              1. 수집 개인정보 항목 _ [필수] 성함, 메일 주소, 휴대전화 번호{" "}
               <br />
               2. 개인정보의 수집 및 이용목적 _ 제휴신청에 따른 본인확인 및
               원활한 의사소통 경로 확보
@@ -311,6 +288,7 @@ function Recruitment() {
                 onChange={emailFormChange}
                 defaultChecked={emailForm.checkbox}
               />
+
               <p>
                 <span className="font-neob">개인정보처리방침</span>에
                 동의합니다.
@@ -319,9 +297,9 @@ function Recruitment() {
             <div className="flex mt-[4vw]">
               <div
                 onClick={() => {
-                  setRecruitmentPageView(!recruitmentPageView)
+                  setIndex(false);
                 }}
-                className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7] cursor-pointer"
+                className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7]"
               >
                 취소
               </div>
@@ -338,12 +316,12 @@ function Recruitment() {
             src={cancel}
             alt=""
             onClick={() => {
-              setRecruitmentPageView(!recruitmentPageView)
+              setIndex(false);
             }}
           />
         </div>
       </div>
-    </>
-  )
+    </Modal>
+  );
 }
-export default Recruitment
+export default Communication;

@@ -1,6 +1,6 @@
-import phone from "../assets/img/main-section2/phone.png";
-import check from "../assets/img/main-section2/check.png";
-import phoneimg from "../assets/img/main-section6/phone.png";
+import phone from "../../../assets/img/main-section2/phone.png";
+import check from "../../../assets/img/main-section2/check.png";
+import phoneimg from "../../../assets/img/main-section6/phone.png";
 import { useEffect, useRef, useState } from "react";
 
 function UpAnimation({ page }) {

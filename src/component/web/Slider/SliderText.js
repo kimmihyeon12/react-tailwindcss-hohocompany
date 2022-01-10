@@ -1,11 +1,11 @@
-import highLight from '../assets/img/main-section1/high-light.png'
-import appstoredown from '../assets/img/main-section1/appstore.png'
-import googlestoredown from '../assets/img/main-section1/googleplay.png'
-import { useRecoilState } from 'recoil'
-import bannerCountState from '../atom/bannerCount'
-import popupView from '../atom/popupView'
+import highLight from "../../../assets/img/main-section1/high-light.png";
+import appstoredown from "../../../assets/img/main-section1/appstore.png";
+import googlestoredown from "../../../assets/img/main-section1/googleplay.png";
+import { useRecoilState } from "recoil";
+import bannerCountState from "../../../atom/bannerCount";
+import popupView from "../../../atom/popupView";
 function SliderText({ count }) {
-  const [bannerCount, setBannerCount] = useRecoilState(bannerCountState)
+  const [bannerCount, setBannerCount] = useRecoilState(bannerCountState);
   //const [popupPageView, setcommunicationPageView] = useRecoilState(popupView)
   const Text1 = (
     <div className="absolute w-[50vw] top-[17.2vw]  left-[10.9vw]  leading-[3.6vw]">
@@ -20,7 +20,7 @@ function SliderText({ count }) {
         방문할 수 없을까요?
       </p>
     </div>
-  )
+  );
   const Text2 = (
     <div className="absolute w-[50vw] top-[20.2vw] left-[10.7vw] leading-[3.6vw] text-[3.1vw]">
       <p className="font-neom">
@@ -29,7 +29,7 @@ function SliderText({ count }) {
       </p>
       <p className="font-neoh text-[#f28446]">더 많은 추억을 쌓을 수 있도록</p>
     </div>
-  )
+  );
   const Text3 = (
     <div className="absolute top-[17.2vw] w-[50vw] left-[10.9vw]  leading-[3.6vw]">
       <p className="text-[1.9vw] font-neob">
@@ -42,7 +42,7 @@ function SliderText({ count }) {
         든든한 힘이 되어드릴게요
       </p>
     </div>
-  )
+  );
   const Text4 = (
     <div className="absolute top-[16.6vw] w-[50vw] left-[10.9vw]  leading-[3.6vw] text-[3.1vw] font-neosb">
       <p>
@@ -63,10 +63,10 @@ function SliderText({ count }) {
         </a>
       </div>
     </div>
-  )
+  );
 
-  const bannerText = [Text1, Text2, Text3, Text4]
+  const bannerText = [Text1, Text2, Text3, Text4];
 
-  return <div className="">{bannerText[count]}</div>
+  return <div className="">{bannerText[count]}</div>;
 }
-export default SliderText
+export default SliderText;

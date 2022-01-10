@@ -9,7 +9,7 @@ import slider4 from "../../../assets/img/main-section5/slider4.png";
 import slider5 from "../../../assets/img/main-section5/slider5.png";
 import slider6 from "../../../assets/img/main-section5/slider6.png";
 import slider7 from "../../../assets/img/main-section5/slider7.png";
-import SliderCenterBigChild from "./CenterImgSliderChild";
+import CenterImgSliderChild from "./CenterImgSliderChild";
 import prev from "../../../assets/img/main-section5/prev.png";
 import next from "../../../assets/img/main-section5/next.png";
 export default function CenterImgSlider() {
@@ -35,10 +35,10 @@ export default function CenterImgSlider() {
   const settings = {
     className: "center",
     centerMode: true,
-    infinite: true,
+
     centerPadding: "-40vw",
-    slidesToShow: 2.4,
-    speed: 500,
+    slidesToShow: 6.38,
+
     beforeChange: (current, next) => {
       setSliderCount(next % 7);
     },
@@ -49,7 +49,7 @@ export default function CenterImgSlider() {
       <Slider {...settings}>
         {slider.map((slider) => {
           return (
-            <SliderCenterBigChild
+            <CenterImgSliderChild
               key={slider.id}
               id={slider.id}
               img={slider.img}
@@ -58,7 +58,7 @@ export default function CenterImgSlider() {
         })}
         {slider.map((slider) => {
           return (
-            <SliderCenterBigChild
+            <CenterImgSliderChild
               key={slider.id}
               id={slider.id}
               img={slider.img}
@@ -66,8 +66,8 @@ export default function CenterImgSlider() {
           );
         })}
       </Slider>
-      <div className="flex justify-center w-full h-[9.6vh] ">
-        <p className="flex items-center justify-center text-[4.5vw] font-neob mt-[3vh]    w-[33vw] text-center leading-[3vh]">
+      <div className="flex justify-center w-full h-[6vw] ">
+        <p className="flex items-center justify-center text-[1.2vw] font-neob   w-[13vw] text-center  ">
           {sliderContent[sliderCount]}
         </p>
       </div>
@@ -80,24 +80,24 @@ const cssstyle = `
   background-image: url('${prev}');    
  
   background-size:40px;
-  margin-top:29.2vh;
+  margin-top:20.2vw;
   padding:20px;
   width:26px;
   
   background-repeat: no-repeat;
-  left:26vw;
+  left:40.5vw;
   outline:none;
 }
 .slick-next{
   background-image: url('${next}');    
  
   background-size:40px;
-  margin-top:29.2vh;
+  margin-top:20.2vw;
   padding:20px;
   width:26px;
   
   background-repeat: no-repeat;
-  left:65vw;
+  left:57.5vw;
   outline:none;
 }
 .slick-prev:focus {
