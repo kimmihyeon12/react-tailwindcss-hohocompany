@@ -240,7 +240,7 @@ export default function WebPage() {
             })}
           </ul>
         </div>
-        <div className="ml-[10vw]  relative h-[30vw]">
+        <div className="ml-[12.5vw]  relative h-[30vw]">
           <div className="">
             <img className="absolute w-[82vw]" src={appDown} alt="" />
             <div className="ml-[28vw] absolute text-[white] mt-[11.2vw]">

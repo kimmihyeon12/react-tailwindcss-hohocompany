@@ -74,7 +74,14 @@ export default function MainImgSlider({ setIndex }) {
                   setIndex(3);
                 }}
               />
-              <img className="w-[41vw]   " src={googleplaybtn} alt="" />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage"
+                target="_blank"
+                className="z-10 "
+                rel="noreferrer"
+              >
+                <img className="w-[41vw]   " src={googleplaybtn} alt="" />
+              </a>
             </div>
           </div>
         </Slider>

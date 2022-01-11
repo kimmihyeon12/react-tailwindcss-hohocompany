@@ -5,8 +5,6 @@ import check from "../../../assets/img/popup/check.png";
 import axios from "axios";
 import Loading from "../../../component/Loading";
 import Modal from "../../../component/Modal";
-import emailjs from "emailjs-com";
-import storage from "../../../utils/firebase";
 
 function Recruitment({ index, setIndex }) {
   const checkboxLabel = useRef();
@@ -22,7 +20,6 @@ function Recruitment({ index, setIndex }) {
     title: "",
     context: "",
     selectedFiles: [],
-    storageFiles: [],
     checkbox: false,
   });
   useEffect(() => {
@@ -74,21 +71,7 @@ function Recruitment({ index, setIndex }) {
   };
 
   const emailFormSubmit = async () => {
-    emailForm.selectedFiles.forEach(async (file) => {
-      console.log(file.name);
-      await storage.ref(`/images/${file.name}`).put(file);
-      storage
-        .ref(`/images/${file.name}`)
-        .getDownloadURL()
-        .then((url) => {
-          setEmailForm({
-            ...emailForm,
-            selectedFiles: emailForm.selectedFiles.concat(url),
-          });
-        });
-    });
-
-    /*if (
+    if (
       emailForm.companyName === "" ||
       emailForm.userName === "" ||
       emailForm.userPhone === "" ||
@@ -115,31 +98,21 @@ function Recruitment({ index, setIndex }) {
     });
     formData.append("type", type);
 
-    // setLoadingPageView(!LoadingPageView);
-    console.log(emailForm);
-    emailjs
-      .send(
-        "service_hfmauf3",
-        "template_5s72u89",
-        emailForm,
-        "user_KXvfNoNAVUWCT1DrMl2Mb"
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function (error) {
-          console.log("FAILED...", error);
-        }
-      );
-    /* const data = await axios({
+    setLoadingPageView(!LoadingPageView);
+    try {
+      const data = await axios({
         method: "post",
         url: `${process.env.REACT_APP_SERVER_URL}/mails`,
         data: formData,
         withCredentials: true,
       });
-      setLoadingPageView(!LoadingPageView);*/
-    // setIndex(false);*/
+      setLoadingPageView(!LoadingPageView);
+    } catch (e) {
+      console.log("실패!!");
+      alert("정보전송에 실패했어요");
+      setLoadingPageView(!LoadingPageView);
+    }
+    setIndex(false);
   };
   const selectedfileName = () => {
     const result = [];
@@ -157,11 +130,11 @@ function Recruitment({ index, setIndex }) {
   return (
     <>
       <Modal openState={index}>
-        <div className="top-0 flex w-[100vw] h-[100vw]  fixed  justify-center z-30 custom-scroll">
+        <div className="top-0 flex w-[100vw] h-[100vh]  fixed  justify-center z-30 custom-scroll">
           {LoadingPageView ? <Loading /> : null}
-          <div className="mt-[2vw]   w-[60vw] h-[90vh] bg-[white]  pl-[5.6vw] pr-[4vw] pb-[1vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
+          <div className="    w-[100vw] h-[100vh] bg-[white]  pl-[5.6vw] pr-[4vw] pb-[4vw] pt-[2vw] border-2 overflow-y-scroll custom-scroll">
             <img
-              className="ml-[100%] h-[4vw]"
+              className="ml-[96%]  h-[10vw]"
               src={cancel}
               alt=""
               onClick={() => {
@@ -169,72 +142,72 @@ function Recruitment({ index, setIndex }) {
               }}
             />
             <div className="">
-              <div className="flex  leading-[2.8vw] items-end">
-                <h1 className="text-[2.5vw] font-neob">
+              <div className="flex items-end">
+                <h1 className="text-[7vw] leading-[9.4vw] font-neob">
                   안녕하세요.
                   <br /> 우아하게와 무엇을
                   <br /> 함께 하시겠습니까?
                 </h1>
-                <img className=" h-[3vw]" src={hand} alt="" />
+                <img className=" h-[7vw]" src={hand} alt="" />
               </div>
-              <p className="mt-[1vw] font-neom text-[#434343] text-[1vw]">
+              <p className="mt-[4vw] font-neom text-[#434343] text-[4vw]">
                 내용에 대한 답변은 입력하신 이메일 주소로 회신하여 드립니다.
               </p>
             </div>
             <div className="mt-[2vw]">
-              <h1 className="text-[1.5vw] font-neob">담당자 정보</h1>
+              <h1 className="text-[4vw] font-neob">담당자 정보</h1>
               <ul>
-                <li className="relative flex items-center">
-                  <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
+                <li className="relative flex items-center mt-2">
+                  <p className="w-[25vw] border-b font-neob text-[3.8vw] ">
                     회사명
-                    <p className="absolute top-[1.1vw] left-[3.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                    <p className="absolute  top-[0.5vh] left-[10.5vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                   </p>
                   <input
                     value={emailForm.companyName}
                     onChange={emailFormChange}
-                    className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
+                    className="   w-[100%]   border-b focus:outline-none  font-neob text-[3.8vw]"
                     type="text"
                     id=""
                     name="companyName"
                   />
                 </li>
-                <li className="relative flex items-center">
-                  <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
+                <li className="relative flex items-center mt-4">
+                  <p className="  w-[25vw] border-b font-neob text-[3.8vw] ">
                     성함 / 직책
-                    <p className="absolute top-[1.1vw] left-[5.4vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                    <p className="absolute  top-[0.5vh] left-[17vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                   </p>
                   <input
                     value={emailForm.userName}
                     onChange={emailFormChange}
-                    className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
+                    className=" w-[100%]   border-b focus:outline-none  font-neob text-[3.8vw]"
                     type="text"
                     id=""
                     name="userName"
                   />
                 </li>
-                <li className="relative flex items-center">
-                  <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
+                <li className="relative flex items-center mt-4">
+                  <p className="  w-[25vw] border-b font-neob text-[3.8vw] ">
                     휴대전화
-                    <p className="absolute top-[1.1vw] left-[4.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                    <p className="absolute  top-[0.2vh] left-[13.5vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                   </p>
                   <input
                     value={emailForm.userPhone}
                     onChange={emailFormChange}
-                    className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
+                    className=" w-[100%]   border-b focus:outline-none  font-neob text-[3.8vw]"
                     type="text"
                     id=""
                     name="userPhone"
                   />
                 </li>
-                <li className="relative flex items-center">
-                  <p className="pb-[0.5vw]  pt-[1vw] w-[7.5vw] border-b font-neob text-[1.2vw]">
+                <li className="relative flex items-center mt-4">
+                  <p className="  w-[25vw] border-b font-neob text-[3.8vw] ">
                     이메일주소
-                    <p className="absolute top-[1.1vw] left-[5.1vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                    <p className="absolute  top-[0.2vh] left-[16.5vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                   </p>
                   <input
                     value={emailForm.userEmail}
                     onChange={emailFormChange}
-                    className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
+                    className=" w-[100%]   border-b focus:outline-none  font-neob text-[3.8vw]"
                     type="text"
                     id=""
                     name="userEmail"
@@ -242,18 +215,18 @@ function Recruitment({ index, setIndex }) {
                 </li>
               </ul>
             </div>
-            <div className="mt-[2vw]">
-              <h1 className="text-[1.5vw] font-neob">제안내용</h1>
+            <div className="mt-[5vw]">
+              <h1 className="text-[4vw] font-neob ">제안내용</h1>
               <ul>
-                <li className="relative flex items-center">
-                  <p className="pb-[0.5vw]  pt-[1vw] w-[4vw] border-b font-neob text-[1.2vw]">
+                <li className="relative flex items-center mt-2">
+                  <p className="  w-[25vw] border-b font-neob text-[3.8vw]">
                     제목
-                    <p className="absolute top-[1.1vw] left-[2.2vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
+                    <p className="absolute  top-[0.5vh] left-[7vw] w-[6px] h-[6px] bg-[#f93873] rounded-full"></p>
                   </p>
                   <input
                     value={emailForm.title}
                     onChange={emailFormChange}
-                    className="pt-[1.0vw] pb-[0.5vw] w-[100%]   border-b-[1px] focus:outline-none  font-neob text-[1.2vw]"
+                    className=" w-[100%]   border-b focus:outline-none  font-neob text-[3.8vw]"
                     type="text"
                     id=""
                     name="title"
@@ -264,7 +237,7 @@ function Recruitment({ index, setIndex }) {
                     value={emailForm.context}
                     name="context"
                     onChange={emailFormChange}
-                    className="mt-[1.5vw] mb-[1vw] text-[1.2vw] border-[1px]  focus:outline-none w-[100%] rounded-lg p-[1vw] placeholder-[#434343] font-neom"
+                    className="mt-[3vw] mb-[4vw] text-[4vw] border-[1px]  focus:outline-none w-[100%] rounded-lg p-[4vw] placeholder-[#434343] font-neom"
                     cols="50"
                     rows="10"
                     placeholder="내용을 입력해주세요"
@@ -275,14 +248,14 @@ function Recruitment({ index, setIndex }) {
             <div className="mb-[3.5vw]">
               <ul>
                 <li>
-                  <p className="font-neom text-[1vw] mb-[1.5vw]">
+                  <p className="font-neom text-[4vw] mb-[3vw]">
                     첨부파일은 최대 10MB까지 등록 가능합니다. 파일형식은 pptx,
                     pdf, xlsx, docx, hwp, jpg, png만 가능합니다.
                   </p>
                 </li>
                 <li className="flex justify-center">
                   <label
-                    className="border-[1px] border-[#f93873]  flex justify-center items-center w-[11.6vw] h-[2.6vw] text-[1.15vw] font-neob rounded-lg text-[#f93873]"
+                    className="border-[1px] border-[#f93873]  flex justify-center items-center w-[22vw] h-[4vh] text-[4vw] font-neob rounded-full text-[#f93873]"
                     htmlFor="input-file"
                   >
                     파일첨부
@@ -302,7 +275,7 @@ function Recruitment({ index, setIndex }) {
               </ul>
             </div>
             <div className="border font-neom text-[0.9vw] rounded-lg p-[0.9vw]">
-              <p className="text-[1vw] font-neom">
+              <p className="text-[4vw] font-neom">
                 &lt; 개인정보보호를 위한 이용자 동의 사항 &gt; <br />
                 우아하게는 제휴를 희망하는 기업 및 개인을 대상으로 아래와 같이
                 개인정보를 수집하고 있습니다.
@@ -316,15 +289,15 @@ function Recruitment({ index, setIndex }) {
                 <br />그 밖의 사항은 개인정보취급방침을 준수합니다.
               </p>
             </div>
-            <div className="mt-[4vw] text-[1.2vw] font-neom flex flex-col items-center">
+            <div className="mt-[4vw] text-[3.8vw] font-neom flex flex-col items-center">
               <div className="relative flex items-center">
                 <label
-                  className="w-[1.4vw] h-[1.4vw] border mr-[0.5vw] rounded-sm bg-[white] cursor-pointer "
+                  className="w-[4vw] h-[4vw] border mr-[0.5vw] rounded-sm bg-[white] cursor-pointer "
                   htmlFor="cb1"
                   ref={checkboxLabel}
                 >
                   <img
-                    className="absolute top-[0.2vw] w-[1.4vw] "
+                    className="absolute top-[0.2vw] w-[4vw] "
                     src={check}
                     alt="img"
                   />
@@ -348,20 +321,20 @@ function Recruitment({ index, setIndex }) {
                   onClick={() => {
                     setIndex(false);
                   }}
-                  className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#c7c7c7] cursor-pointer"
+                  className="font-neob flex justify-center items-center rounded-full text-[4vw] w-[18vw] h-[4vh] text-[white] ml-[0.8vw] bg-[#c7c7c7] cursor-pointer"
                 >
                   취소
                 </div>
                 <div
                   onClick={emailFormSubmit}
-                  className="font-neob flex justify-center items-center rounded-lg text-[1vw] w-[12.5vw] h-[3vw] text-[white] ml-[0.8vw] bg-[#f93873] cursor-pointer"
+                  className="font-neob flex justify-center items-center rounded-full text-[4vw] w-[18vw] h-[4vh] text-[white] ml-[0.8vw] bg-[#f93873] cursor-pointer"
                 >
                   확인
                 </div>
               </div>
             </div>
             <img
-              className="ml-[100%] h-[4vw] mt-[5vw]"
+              className="ml-[96%]  h-[10vw] mt-[5vw]"
               src={cancel}
               alt=""
               onClick={() => {

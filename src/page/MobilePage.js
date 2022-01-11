@@ -25,12 +25,15 @@ import PreparPopup from "../component/mobile/Popup/PreparPopup";
 import smoothscroll from "smoothscroll-polyfill";
 import Page from "../component/mobile/Page";
 import Footer from "../component/mobile/Footer";
-
+import Communication from "../component/mobile/Popup/Communication";
+import Recruitment from "../component/mobile/Popup/Recruitment";
 function MobilePage() {
   const [logoColor, setLogoColor] = useState(0);
   const [count, setCount] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [preparIndex, setPreparIndex] = useState(0);
+  const [recruitmentIndex, setRecruitment] = useState(false);
+  const [communicationIndex, setCommunication] = useState(false);
   const pages = useRef([]);
 
   smoothscroll.polyfill();
@@ -46,7 +49,7 @@ function MobilePage() {
     });
   }, []);
   useEffect(() => {
-    if ((touch && scrollY > 5) || (touch && scrollY < -5)) {
+    if ((touch && scrollY > 10) || (touch && scrollY < -10)) {
       if (scrollY > 0) {
         if (count <= 8) {
           setCount(count + 1);
@@ -58,7 +61,6 @@ function MobilePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollY]);
   useEffect(() => {
-    console.log(`count : ${count}`);
     var location;
     for (let i = 0; i < 10; i++) {
       if (count === i) {
@@ -89,6 +91,8 @@ function MobilePage() {
   return (
     <div className="w-full">
       <PreparPopup index={preparIndex} setIndex={setPreparIndex} />
+      <Communication index={communicationIndex} setIndex={setCommunication} />
+      <Recruitment index={recruitmentIndex} setIndex={setRecruitment} />
       <Header color={logoColor} />
       <Page ref={(elem) => (pages.current[0] = elem)} center={false}>
         <AutoImgSlider setIndex={setPreparIndex} />
@@ -139,7 +143,7 @@ function MobilePage() {
       <Page
         ref={(elem) => (pages.current[3] = elem)}
         center={false}
-        bgColor={"[#f2f2f2]"}
+        bgColor={"bg-[#f2f2f2]"}
       >
         <div className="relative">
           <img className="absolute w-full " src={backgroundb} alt="" />
@@ -159,33 +163,36 @@ function MobilePage() {
         </div>
       </Page>
       <Page ref={(elem) => (pages.current[4] = elem)} center={false}>
-        <div className="flex flex-col items-center ">
-          <p className=" pt-[12vh] text-center text-[4.8vw] leading-[6vw] tracking-[-0.9px] font-neosb">
-            육아맘과 육아대디에게
-          </p>
-          <p className=" pt-[1vh] text-center text-[8vw] leading-[9.4vw] tracking-[-0.9px] font-neosb">
-            꼭 필요한 정보를 편리하게
-          </p>
-          <div className="flex   font-neosb   text-[3.5vw]    pt-[4vh] ">
-            <div className="flex items-center justify-center w-[24vw] border rounded-full  h-[4vh] text-[#f93873] border-[#f93873] ">
-              #아기의자
+        <div className="flex flex-col items-center h-screen ">
+          <div className="flex flex-col items-center">
+            <p className=" pt-[12vh] text-center text-[4.8vw] leading-[6vw] tracking-[-0.9px] font-neosb">
+              육아맘과 육아대디에게
+            </p>
+            <p className=" pt-[1vh] text-center text-[8vw] leading-[9.4vw] tracking-[-0.9px] font-neosb">
+              꼭 필요한 정보를 편리하게
+            </p>
+            <div className="flex   font-neosb   text-[3.5vw]    pt-[4vh] ">
+              <div className="flex items-center justify-center w-[24vw] border rounded-full  h-[4vh] text-[#f93873] border-[#f93873] ">
+                #아기의자
+              </div>
+              <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c] border-[#39396c] ml-[9px]">
+                #기저귀 교환
+              </div>
+              <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c] border-[#39396c] ml-[9px]">
+                #놀이방
+              </div>
             </div>
-            <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c] border-[#39396c] ml-[9px]">
-              #기저귀 교환
-            </div>
-            <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c] border-[#39396c] ml-[9px]">
-              #놀이방
+
+            <div className="flex   font-neosb   text-[3.5vw]    mt-[2vh]   ">
+              <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c]  border-[#39396c] ">
+                #아기메뉴
+              </div>
+              <div className="flex items-center justify-center w-[24vw] border rounded-full  h-[4vh] text-[#f93873] border-[#f93873] ml-[9px]">
+                #아이식기
+              </div>
             </div>
           </div>
-          <div className="flex   font-neosb   text-[3.5vw]    mt-[2vh]   ">
-            <div className="flex items-center justify-center w-[24vw] border rounded-full h-[4vh] text-[#39396c]  border-[#39396c] ">
-              #아기메뉴
-            </div>
-            <div className="flex items-center justify-center w-[24vw] border rounded-full  h-[4vh] text-[#f93873] border-[#f93873] ml-[9px]">
-              #아이식기
-            </div>
-          </div>
-          <div className=" w-screen h-[55vh] mt-[5.5vh]  overflow-y-hidden ">
+          <div className=" w-screen h-[55vh] mt-[5.5vh] ">
             <CenterImgSlider />
           </div>
         </div>
@@ -272,10 +279,22 @@ function MobilePage() {
                 setPreparIndex(3);
               }}
             />
-            <img className=" h-[5.4vh]   z-10 " src={googlebtn} alt="" />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.hohocompany.uahage"
+              target="_blank"
+              className="z-10 "
+              rel="noreferrer"
+            >
+              <img className=" h-[5.4vh]   z-10 " src={googlebtn} alt="" />
+            </a>
           </div>
 
-          <div className="relative  mt-[43vh]">
+          <div
+            className="relative  mt-[43vh]"
+            onClick={() => {
+              setRecruitment(true);
+            }}
+          >
             <img className="  h-[12.5vh]" src={company2} alt="" />
             <div className="absolute top-0 text-white left-3">
               <p className=" font-neob text-[4.8vw] mt-[1.5vh]">
@@ -290,7 +309,12 @@ function MobilePage() {
               함께 성장하기
             </div>
           </div>
-          <div className="relative  mt-[3vh]">
+          <div
+            className="relative  mt-[3vh]"
+            onClick={() => {
+              setCommunication(true);
+            }}
+          >
             <img className="  h-[12.5vh]" src={company1} alt="" />
             <div className="absolute top-0 text-white left-3">
               <p className=" font-neob text-[4.8vw] mt-[2vh]">
@@ -317,7 +341,7 @@ function MobilePage() {
       <Page
         ref={(elem) => (pages.current[9] = elem)}
         center={true}
-        bgColor={"black"}
+        bgColor={"bg-[#2b2b2b]"}
       >
         <Footer />
       </Page>

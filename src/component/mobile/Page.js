@@ -4,7 +4,7 @@ const Page = React.forwardRef(({ children, center, bgColor }, ref) => {
     <div
       className={`relative w-full h-screen flex flex-col overflow-hidden ${
         center ? "items-center" : ""
-      } bg-${bgColor ? bgColor : ""}
+      }  ${bgColor ? bgColor : ""}
       }`}
       ref={ref}
     >
